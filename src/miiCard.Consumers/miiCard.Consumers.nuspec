@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://www.miicard.com/developers</licenseUrl>
+    <projectUrl>http://www.miicard.com/developers</projectUrl>
+    <iconUrl>http://www.miicard.com/sites/default/files/dev/nuget_32x32.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2012</copyright>
+    <tags>miiCard identity assurance security miicard.com</tags>
+  </metadata>
+</package>

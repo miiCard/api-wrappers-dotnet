@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4aef8f66-a17e-4f96-9f75-d76dfacb32c5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://stsbeta.miicard.com/api/v1/Claims.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Claims.disco" MetadataType="Disco" ID="e60f8dbb-d296-42d0-8116-138ca01f8e4e" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?disco" />
+    <MetadataFile FileName="Claims.wsdl" MetadataType="Wsdl" ID="ed55b957-8d95-4ab2-b3e1-7c2cea070fda" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?wsdl" />
+    <MetadataFile FileName="Claims1.xsd" MetadataType="Schema" ID="46829b55-5f6c-49a3-b1bc-910fa7ecf245" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd1" />
+    <MetadataFile FileName="Claims2.xsd" MetadataType="Schema" ID="c986d425-9d53-483d-83e9-782eb52bb475" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" />
+    <MetadataFile FileName="Claims3.xsd" MetadataType="Schema" ID="3d93ce61-1186-4dd7-a9b5-41426442b069" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd3" />
+    <MetadataFile FileName="Claims.xsd" MetadataType="Schema" ID="f4e711d3-1bd7-447d-99ab-5bc606849998" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

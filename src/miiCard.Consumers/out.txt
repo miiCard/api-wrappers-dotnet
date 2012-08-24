@@ -1,0 +1,6 @@
+Created 'miiCard.Consumers.nuspec' successfully.
+Attempting to build package from 'miiCard.Consumers.csproj'.
+Packing files from 'C:\Projects\Controlled\miiCard\Frameworks\Controls\DotNET\miiCard.Consumers\bin\NuGet Package'.
+Using 'miiCard.Consumers.nuspec' for metadata.
+Found packages.config. Using packages listed as dependencies
+Successfully created package 'C:\Projects\Controlled\miiCard\Frameworks\Controls\DotNET\miiCard.Consumers\miiCard.Consumers.1.0.4612.25414.nupkg'.

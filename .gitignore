@@ -2,5 +2,12 @@
 bin
 obj
 
+*.suo
+*.vssscc
+*.vspscc
+*.user
+*.nupkg
+*.snk
+
 # mstest test results
 TestResults
