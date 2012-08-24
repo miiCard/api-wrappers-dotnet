@@ -61,10 +61,11 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>miiCardKey.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetOpenAuth.Core">
@@ -119,7 +120,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="miiCardKey.snk" />
     <None Include="PackageForNuget.ps1" />
     <None Include="packages.config" />
     <None Include="Service References\Service.v1.Claims\Claims3.xsd">
