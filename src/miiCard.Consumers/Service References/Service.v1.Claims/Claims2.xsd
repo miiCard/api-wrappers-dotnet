@@ -38,6 +38,7 @@
       <xs:element minOccurs="0" name="PublicProfile" nillable="true" type="tns:MiiUserProfile" />
       <xs:element minOccurs="0" name="Salutation" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebProperties" nillable="true" type="tns:ArrayOfWebProperty" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MiiUserProfile" nillable="true" type="tns:MiiUserProfile" />
@@ -126,6 +127,31 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="PostalAddress" nillable="true" type="tns:PostalAddress" />
+  <xs:complexType name="ArrayOfWebProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebProperty" nillable="true" type="tns:WebProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebProperty" nillable="true" type="tns:ArrayOfWebProperty" />
+  <xs:complexType name="WebProperty">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Claim">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="tns:WebPropertyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebProperty" nillable="true" type="tns:WebProperty" />
+  <xs:simpleType name="WebPropertyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Domain" />
+      <xs:enumeration value="Website" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WebPropertyType" nillable="true" type="tns:WebPropertyType" />
   <xs:simpleType name="MiiApiErrorCode">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Success" />

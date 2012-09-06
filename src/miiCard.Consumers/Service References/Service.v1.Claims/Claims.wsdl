@@ -117,7 +117,7 @@
   </wsdl:binding>
   <wsdl:service name="Claims">
     <wsdl:port name="BasicHttpBinding_IClaims" binding="tns:BasicHttpBinding_IClaims">
-      <soap:address location="https://rd00155d3a49c9/api/v1/Claims.svc" />
+      <soap:address location="https://rd00155d3a4b7f/api/v1/Claims.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

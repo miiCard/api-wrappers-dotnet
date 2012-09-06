@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="7e25WW/zx6ET56HUn/lpydF+jb0=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="bzcSSlyxHlX63qZQiwDjcOh+QtY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IClaims">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IClaims" contract="Service.v1.Claims.IClaims" bindingType="basicHttpBinding" address="https://rd00155d3a49c9/api/v1/Claims.svc" bindingConfiguration="BasicHttpBinding_IClaims">
+    <endpoint name="BasicHttpBinding_IClaims" contract="Service.v1.Claims.IClaims" bindingType="basicHttpBinding" address="https://rd00155d3a4b7f/api/v1/Claims.svc" bindingConfiguration="BasicHttpBinding_IClaims">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>https://rd00155d3a49c9/api/v1/Claims.svc</serializedValue>
+          <serializedValue>https://rd00155d3a4b7f/api/v1/Claims.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
