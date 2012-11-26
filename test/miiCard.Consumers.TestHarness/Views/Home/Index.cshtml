@@ -1,0 +1,187 @@
+﻿@model miiCard.Consumers.TestHarness.Models.HarnessViewModel
+
+<!doctype html>
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="/Content/bootstrap.min.css" />
+    <link rel="Stylesheet" type="text/css" href="/Content/Site.css" />
+    <script href="/Scripts/jquery-1.8.2.min.js"></script>
+    <script href="/Scripts/bootstrap.min.js"></script>
+    <title>.NET miiCard API test harness</title>
+    <style type="text/css">
+    .page-header { margin-top: 50px; margin-bottom: 10px; }
+    input[type=text] { width: 50%; }
+    </style>
+</head>
+
+<body>
+    @using (@Html.BeginForm()){
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <h1>.NET miiCard API test harness</h1>
+        </div>
+    </div>
+    <form method="POST">
+        <div class="page-header">
+            <h1>OAuth token settings
+            <small>Enter manually</small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="span12">
+                @if (Model.ShowOAuthDetailsRequiredError)
+                {
+                <div class="alert alert-error">
+                    Keys and secrets are required fields.
+                </div>
+                }
+
+                @Html.LabelFor(x => x.ConsumerKey)
+                @Html.TextBoxFor(x => x.ConsumerKey)
+                @Html.ValidationMessageFor(x => x.ConsumerKey)
+
+                @Html.LabelFor(x => x.ConsumerSecret)
+                @Html.TextBoxFor(x => x.ConsumerSecret)
+                @Html.ValidationMessageFor(x => x.ConsumerSecret)
+
+                @Html.LabelFor(x => x.AccessToken)
+                @Html.TextBoxFor(x => x.AccessToken)
+                @Html.ValidationMessageFor(x => x.AccessToken)
+
+                @Html.LabelFor(x => x.AccessTokenSecret)
+                @Html.TextBoxFor(x => x.AccessTokenSecret)
+                @Html.ValidationMessageFor(x => x.AccessTokenSecret)
+
+                @Html.LabelFor(x => x.ReferrerCode)
+                @Html.TextBoxFor(x => x.ReferrerCode)
+                @Html.ValidationMessageFor(x => x.ReferrerCode)
+            </div>
+        </div>
+        <div class="page-header">
+            <h1>API methods
+            <small>Find the method you want to invoke</small>
+            </h1>
+        </div>
+        <div class="page-header">
+            <h2>GetClaims
+            <small>Gets the set of data a user has shared with the application</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <p>There are no parameters</p>
+                <h4>Result</h4>
+                @if (!string.IsNullOrWhiteSpace(Model.LastGetClaimsResult))
+                {
+                <p>@Html.Raw(@Model.LastGetClaimsResult)</p>
+                }
+                <button type="submit" name="btn-invoke" value="get-claims" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h2>IsUserAssured
+            <small>Determines if the user has a current financial validation</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <p>There are no parameters</p>
+                <h4>Result</h4>
+                @if (!string.IsNullOrWhiteSpace(Model.LastIsUserAssuredResult))
+                {
+                    <p>@Html.Raw(Model.LastIsUserAssuredResult)</p>
+                }
+                <button type="submit" name="btn-invoke" value="is-user-assured" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h2>IsSocialAccountAssured
+            <small>Determines if a given social account belongs to the user</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <label for="social-account-id">Social account ID</label>
+                <input type="text" name="social-account-id" value="@Model.SocialAccountId" />
+                <label for="social-account-type">Social account type (e.g. 'Twitter')</label>
+                <input type="text" name="social-account-type" value="@Model.SocialAccountType" />
+    
+                <h4>Result</h4>
+                @if (!string.IsNullOrWhiteSpace(Model.LastIsSocialAccountAssuredResult))
+                {
+                    <p>@Model.LastIsSocialAccountAssuredResult</p>
+                }
+                <button type="submit" name="btn-invoke" value="is-social-account-assured" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h2>AssuranceImage
+            <small>Renders a graphical representation of LOA</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <label for="social-account-id">Image type</label>
+                <input type="text" name="assurance-image-type" value="@Model.AssuranceImageType" />
+    
+                <h4>Result</h4>
+                @if (Model.ShowAssuranceImage)
+                {
+                <p><img src="/assuranceimage?oauth-consumer-key=@Model.ConsumerKey&oauth-consumer-secret=@Model.ConsumerSecret&oauth-access-token=@Model.AccessToken&oauth-access-token-secret=@Model.AccessTokenSecret&type=@Model.AssuranceImageType" /></p>
+                }
+                <button type="submit" name="btn-invoke" value="assurance-image" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+        
+        <div class="page-header">
+            <h2>GetIdentitySnapshotDetails
+            <small>Retrieve metadata about an identity snapshot</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <label for="identitySnapshotDetailsSnapshotId">Snapshot ID (blank to list all)</label>
+                <input type="text" name="snapshot-details-id" value="@Model.SnapshotDetailsId" />
+
+                <h4>Result</h4>
+                @if (!string.IsNullOrWhiteSpace(Model.LastGetIdentitySnapshotDetailsResult))
+                {
+                    <p>@Html.Raw(Model.LastGetIdentitySnapshotDetailsResult)</p>
+                }
+                <button type="submit" name="btn-invoke" value="get-identity-snapshot-details" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h2>GetIdentitySnapshot
+            <small>Retrieve a previously created snapshot of a miiCard member's identity</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <label for="identitySnapshotId">Snapshot ID</label>
+                <input type="text" name="snapshot-id" value="@Model.SnapshotId" />
+
+                <h4>Result</h4>
+                @if (!string.IsNullOrWhiteSpace(Model.LastGetIdentitySnapshotResult))
+                {
+                    <p>@Html.Raw(Model.LastGetIdentitySnapshotResult)</p>
+                }
+                <button type="submit" name="btn-invoke" value="get-identity-snapshot" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+    </form>
+</div>
+    }
+</body>
+</html>

@@ -1,0 +1,3 @@
+﻿div.fact { margin-left: 20px; }
+div.fact h1, div.fact h2, div.fact h3 { display: block; }
+span.fact-name { display: inline-block; width: 150px; font-weight: bold; margin-right: 20px; }
