@@ -1,58 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
-  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
-  <xs:element name="GetClaims">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetClaimsResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="GetClaimsResult" nillable="true" type="q1:MiiApiResponseOfMiiUserProfile" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AssuranceImage">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="type" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AssuranceImageResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.microsoft.com/Message" name="AssuranceImageResult" type="q2:StreamBody" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IsSocialAccountAssured">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="socialAccountId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="socialAccountType" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IsSocialAccountAssuredResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="IsSocialAccountAssuredResult" nillable="true" type="q3:MiiApiResponseOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IsUserAssured">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IsUserAssuredResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="IsUserAssuredResult" nillable="true" type="q4:MiiApiResponseOfboolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
+  <xs:complexType name="ArrayOfIdentitySnapshotDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdentitySnapshotDetails" nillable="true" type="tns:IdentitySnapshotDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdentitySnapshotDetails" nillable="true" type="tns:ArrayOfIdentitySnapshotDetails" />
+  <xs:complexType name="IdentitySnapshotDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SnapshotId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimestampUtc" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WasTestUser" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdentitySnapshotDetails" nillable="true" type="tns:IdentitySnapshotDetails" />
+  <xs:complexType name="IdentitySnapshot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Details" nillable="true" type="tns:IdentitySnapshotDetails" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="Snapshot" nillable="true" type="q1:MiiUserProfile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdentitySnapshot" nillable="true" type="tns:IdentitySnapshot" />
 </xs:schema>

@@ -1,205 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="MiiApiResponseOfMiiUserProfile">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="MiiApiResponseOf{0}" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="MiiUserProfile" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Data" nillable="true" type="tns:MiiUserProfile" />
-      <xs:element minOccurs="0" name="ErrorCode" type="tns:MiiApiErrorCode" />
-      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" type="tns:MiiApiCallStatus" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MiiApiResponseOfMiiUserProfile" nillable="true" type="tns:MiiApiResponseOfMiiUserProfile" />
-  <xs:complexType name="MiiUserProfile">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CardImageUrl" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmailAddresses" nillable="true" type="tns:ArrayOfEmailAddress" />
-      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="HasPublicProfile" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Identities" nillable="true" type="tns:ArrayOfIdentity" />
-      <xs:element minOccurs="0" name="IdentityAssured" type="xs:boolean" />
-      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LastVerified" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PhoneNumbers" nillable="true" type="tns:ArrayOfPhoneNumber" />
-      <xs:element minOccurs="0" name="PostalAddresses" nillable="true" type="tns:ArrayOfPostalAddress" />
-      <xs:element minOccurs="0" name="PreviousFirstName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PreviousLastName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PreviousMiddleName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ProfileShortUrl" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ProfileUrl" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PublicProfile" nillable="true" type="tns:MiiUserProfile" />
-      <xs:element minOccurs="0" name="Salutation" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="WebProperties" nillable="true" type="tns:ArrayOfWebProperty" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MiiUserProfile" nillable="true" type="tns:MiiUserProfile" />
-  <xs:complexType name="ArrayOfEmailAddress">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailAddress" nillable="true" type="tns:EmailAddress" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfEmailAddress" nillable="true" type="tns:ArrayOfEmailAddress" />
-  <xs:complexType name="EmailAddress">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Claim">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="IsPrimary" type="xs:boolean" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="EmailAddress" nillable="true" type="tns:EmailAddress" />
-  <xs:complexType name="Claim">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Verified" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Claim" nillable="true" type="tns:Claim" />
-  <xs:complexType name="ArrayOfIdentity">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Identity" nillable="true" type="tns:Identity" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfIdentity" nillable="true" type="tns:ArrayOfIdentity" />
-  <xs:complexType name="Identity">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Claim">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="ProfileUrl" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Identity" nillable="true" type="tns:Identity" />
-  <xs:complexType name="ArrayOfPhoneNumber">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhoneNumber" nillable="true" type="tns:PhoneNumber" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPhoneNumber" nillable="true" type="tns:ArrayOfPhoneNumber" />
-  <xs:complexType name="PhoneNumber">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Claim">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="IsMobile" type="xs:boolean" />
-          <xs:element minOccurs="0" name="IsPrimary" type="xs:boolean" />
-          <xs:element minOccurs="0" name="NationalNumber" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="PhoneNumber" nillable="true" type="tns:PhoneNumber" />
-  <xs:complexType name="ArrayOfPostalAddress">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="PostalAddress" nillable="true" type="tns:PostalAddress" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPostalAddress" nillable="true" type="tns:ArrayOfPostalAddress" />
-  <xs:complexType name="PostalAddress">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Claim">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="House" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="IsPrimary" type="xs:boolean" />
-          <xs:element minOccurs="0" name="Line1" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Line2" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="PostalAddress" nillable="true" type="tns:PostalAddress" />
-  <xs:complexType name="ArrayOfWebProperty">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebProperty" nillable="true" type="tns:WebProperty" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfWebProperty" nillable="true" type="tns:ArrayOfWebProperty" />
-  <xs:complexType name="WebProperty">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Claim">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Type" type="tns:WebPropertyType" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="WebProperty" nillable="true" type="tns:WebProperty" />
-  <xs:simpleType name="WebPropertyType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Domain" />
-      <xs:enumeration value="Website" />
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="anyType" nillable="true" type="xs:anyType" />
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+  <xs:element name="boolean" nillable="true" type="xs:boolean" />
+  <xs:element name="byte" nillable="true" type="xs:byte" />
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+  <xs:element name="decimal" nillable="true" type="xs:decimal" />
+  <xs:element name="double" nillable="true" type="xs:double" />
+  <xs:element name="float" nillable="true" type="xs:float" />
+  <xs:element name="int" nillable="true" type="xs:int" />
+  <xs:element name="long" nillable="true" type="xs:long" />
+  <xs:element name="QName" nillable="true" type="xs:QName" />
+  <xs:element name="short" nillable="true" type="xs:short" />
+  <xs:element name="string" nillable="true" type="xs:string" />
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+  <xs:element name="char" nillable="true" type="tns:char" />
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration" />
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="WebPropertyType" nillable="true" type="tns:WebPropertyType" />
-  <xs:simpleType name="MiiApiErrorCode">
+  <xs:element name="guid" nillable="true" type="tns:guid" />
+  <xs:simpleType name="guid">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Success" />
-      <xs:enumeration value="AccessRevoked">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="UserSubscriptionLapsed">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">200</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Exception">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10000</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="MiiApiErrorCode" nillable="true" type="tns:MiiApiErrorCode" />
-  <xs:simpleType name="MiiApiCallStatus">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Success" />
-      <xs:enumeration value="Failure" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="MiiApiCallStatus" nillable="true" type="tns:MiiApiCallStatus" />
-  <xs:complexType name="MiiApiResponseOfboolean">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="MiiApiResponseOf{0}" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Data" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ErrorCode" type="tns:MiiApiErrorCode" />
-      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" type="tns:MiiApiCallStatus" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="MiiApiResponseOfboolean" nillable="true" type="tns:MiiApiResponseOfboolean" />
+  <xs:attribute name="FactoryType" type="xs:QName" />
+  <xs:attribute name="Id" type="xs:ID" />
+  <xs:attribute name="Ref" type="xs:IDREF" />
 </xs:schema>

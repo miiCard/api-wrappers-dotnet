@@ -32,6 +32,9 @@ namespace miiCard.Consumers.Service.v1.Claims {
         private string ErrorMessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsTestUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -79,6 +82,19 @@ namespace miiCard.Consumers.Service.v1.Claims {
                 if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
                     this.ErrorMessageField = value;
                     this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsTestUser {
+            get {
+                return this.IsTestUserField;
+            }
+            set {
+                if ((this.IsTestUserField.Equals(value) != true)) {
+                    this.IsTestUserField = value;
+                    this.RaisePropertyChanged("IsTestUser");
                 }
             }
         }
@@ -467,6 +483,15 @@ namespace miiCard.Consumers.Service.v1.Claims {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UserSubscriptionLapsed = 200,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TransactionalSupportDisabled = 1000,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DevelopmentTransactionalSupportOnly = 1010,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidSnapshotId = 1020,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Exception = 10000,
@@ -950,6 +975,9 @@ namespace miiCard.Consumers.Service.v1.Claims {
         private string ErrorMessageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsTestUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -1002,6 +1030,19 @@ namespace miiCard.Consumers.Service.v1.Claims {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsTestUser {
+            get {
+                return this.IsTestUserField;
+            }
+            set {
+                if ((this.IsTestUserField.Equals(value) != true)) {
+                    this.IsTestUserField = value;
+                    this.RaisePropertyChanged("IsTestUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus Status {
             get {
                 return this.StatusField;
@@ -1010,6 +1051,378 @@ namespace miiCard.Consumers.Service.v1.Claims {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MiiApiResponseOfArrayOfIdentitySnapshotDetails", Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api")]
+    [System.SerializableAttribute()]
+    public partial class MiiApiResponseOfArrayOfIdentitySnapshotDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.IdentitySnapshotDetails[] DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.MiiApiErrorCode ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsTestUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.IdentitySnapshotDetails[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.MiiApiErrorCode ErrorCode {
+            get {
+                return this.ErrorCodeField;
+            }
+            set {
+                if ((this.ErrorCodeField.Equals(value) != true)) {
+                    this.ErrorCodeField = value;
+                    this.RaisePropertyChanged("ErrorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsTestUser {
+            get {
+                return this.IsTestUserField;
+            }
+            set {
+                if ((this.IsTestUserField.Equals(value) != true)) {
+                    this.IsTestUserField = value;
+                    this.RaisePropertyChanged("IsTestUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IdentitySnapshotDetails", Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional")]
+    [System.SerializableAttribute()]
+    public partial class IdentitySnapshotDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SnapshotIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimestampUtcField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool WasTestUserField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SnapshotId {
+            get {
+                return this.SnapshotIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SnapshotIdField, value) != true)) {
+                    this.SnapshotIdField = value;
+                    this.RaisePropertyChanged("SnapshotId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimestampUtc {
+            get {
+                return this.TimestampUtcField;
+            }
+            set {
+                if ((this.TimestampUtcField.Equals(value) != true)) {
+                    this.TimestampUtcField = value;
+                    this.RaisePropertyChanged("TimestampUtc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool WasTestUser {
+            get {
+                return this.WasTestUserField;
+            }
+            set {
+                if ((this.WasTestUserField.Equals(value) != true)) {
+                    this.WasTestUserField = value;
+                    this.RaisePropertyChanged("WasTestUser");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MiiApiResponseOfIdentitySnapshot", Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api")]
+    [System.SerializableAttribute()]
+    public partial class MiiApiResponseOfIdentitySnapshot : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.IdentitySnapshot DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.MiiApiErrorCode ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsTestUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.IdentitySnapshot Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.MiiApiErrorCode ErrorCode {
+            get {
+                return this.ErrorCodeField;
+            }
+            set {
+                if ((this.ErrorCodeField.Equals(value) != true)) {
+                    this.ErrorCodeField = value;
+                    this.RaisePropertyChanged("ErrorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsTestUser {
+            get {
+                return this.IsTestUserField;
+            }
+            set {
+                if ((this.IsTestUserField.Equals(value) != true)) {
+                    this.IsTestUserField = value;
+                    this.RaisePropertyChanged("IsTestUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="IdentitySnapshot", Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional")]
+    [System.SerializableAttribute()]
+    public partial class IdentitySnapshot : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.IdentitySnapshotDetails DetailsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.MiiUserProfile SnapshotField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.IdentitySnapshotDetails Details {
+            get {
+                return this.DetailsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.MiiUserProfile Snapshot {
+            get {
+                return this.SnapshotField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SnapshotField, value) != true)) {
+                    this.SnapshotField = value;
+                    this.RaisePropertyChanged("Snapshot");
                 }
             }
         }
@@ -1039,6 +1452,12 @@ namespace miiCard.Consumers.Service.v1.Claims {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClaims/IsUserAssured", ReplyAction="http://tempuri.org/IClaims/IsUserAssuredResponse")]
         miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfboolean IsUserAssured();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClaims/GetIdentitySnapshotDetails", ReplyAction="http://tempuri.org/IClaims/GetIdentitySnapshotDetailsResponse")]
+        miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfArrayOfIdentitySnapshotDetails GetIdentitySnapshotDetails(string snapshotId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClaims/GetIdentitySnapshot", ReplyAction="http://tempuri.org/IClaims/GetIdentitySnapshotResponse")]
+        miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfIdentitySnapshot GetIdentitySnapshot(string snapshotId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1082,6 +1501,14 @@ namespace miiCard.Consumers.Service.v1.Claims {
         
         public miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfboolean IsUserAssured() {
             return base.Channel.IsUserAssured();
+        }
+        
+        public miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfArrayOfIdentitySnapshotDetails GetIdentitySnapshotDetails(string snapshotId) {
+            return base.Channel.GetIdentitySnapshotDetails(snapshotId);
+        }
+        
+        public miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfIdentitySnapshot GetIdentitySnapshot(string snapshotId) {
+            return base.Channel.GetIdentitySnapshot(snapshotId);
         }
     }
 }

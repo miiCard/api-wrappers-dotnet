@@ -21,12 +21,13 @@
     <MetadataSource Address="http://stsbeta.miicard.com/api/v1/Claims.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Claims.disco" MetadataType="Disco" ID="e60f8dbb-d296-42d0-8116-138ca01f8e4e" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?disco" />
-    <MetadataFile FileName="Claims.wsdl" MetadataType="Wsdl" ID="ed55b957-8d95-4ab2-b3e1-7c2cea070fda" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?wsdl" />
-    <MetadataFile FileName="Claims1.xsd" MetadataType="Schema" ID="46829b55-5f6c-49a3-b1bc-910fa7ecf245" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd1" />
-    <MetadataFile FileName="Claims2.xsd" MetadataType="Schema" ID="c986d425-9d53-483d-83e9-782eb52bb475" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" />
-    <MetadataFile FileName="Claims3.xsd" MetadataType="Schema" ID="3d93ce61-1186-4dd7-a9b5-41426442b069" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd3" />
-    <MetadataFile FileName="Claims.xsd" MetadataType="Schema" ID="f4e711d3-1bd7-447d-99ab-5bc606849998" SourceId="1" SourceUrl="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd0" />
+    <MetadataFile FileName="Claims.wsdl" MetadataType="Wsdl" ID="0eb3d4be-b622-4307-bb41-7b083b31e112" SourceId="1" SourceUrl="https://stsbeta.miicard.com/api/v1/Claims.svc?wsdl" />
+    <MetadataFile FileName="Claims.xsd" MetadataType="Schema" ID="1b1f9682-24f5-43e0-80cd-774f0038bf1d" SourceId="1" SourceUrl="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd4" />
+    <MetadataFile FileName="Claims1.xsd" MetadataType="Schema" ID="2fa5467d-07df-4b9e-acc7-1210a2418524" SourceId="1" SourceUrl="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd0" />
+    <MetadataFile FileName="Claims2.xsd" MetadataType="Schema" ID="0854e6a3-6442-4dd2-a259-2d543d4dcb7a" SourceId="1" SourceUrl="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd1" />
+    <MetadataFile FileName="Claims3.xsd" MetadataType="Schema" ID="dbd4a34c-9acb-4b65-987d-2a02cdf004d9" SourceId="1" SourceUrl="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" />
+    <MetadataFile FileName="Claims4.xsd" MetadataType="Schema" ID="e71c9978-df7a-4d16-b3c5-337a3313aba2" SourceId="1" SourceUrl="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd3" />
+    <MetadataFile FileName="Claims.disco" MetadataType="Disco" ID="6856fe93-d76c-468e-8f32-f68339d769d0" SourceId="1" SourceUrl="https://stsbeta.miicard.com/api/v1/Claims.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

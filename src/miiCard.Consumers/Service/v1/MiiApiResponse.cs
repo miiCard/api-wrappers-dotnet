@@ -16,10 +16,12 @@ namespace miiCard.Consumers.Service.v1
         /// Gets or sets the overall status of the API call.
         /// </summary>
         public MiiApiCallStatus Status { get; set; }
+
         /// <summary>
         /// Gets or sets the specific error code associated with the API call.
         /// </summary>
         public MiiApiErrorCode ErrorCode { get; set; }
+
         /// <summary>
         /// Gets or sets any additional error information associated with an error state. Intended for
         /// use only with the MiiCardApiErrorCode.Exception ErrorCode value, though can be used for any
@@ -31,6 +33,13 @@ namespace miiCard.Consumers.Service.v1
         /// The payload of the response, representing the raw result of the API call being wrapped.
         /// </summary>
         public T Data { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the user is marked as a tester for your application. Test users can share 
+        /// unvalidated identity information with your application to allow easier testing, but should be
+        /// prohibited from use on production systems.
+        /// </summary>
+        public bool IsTestUser { get; set; }
 
         /// <summary>
         /// Initialises a new MiiApiResponse.
@@ -48,13 +57,15 @@ namespace miiCard.Consumers.Service.v1
         /// <param name="errorCode">The error code of any error raised by making the API call.</param>
         /// <param name="errorMessage">The error message associated with any error raised by making the API call.</param>
         /// <param name="data">The payload of the call, if any.</param>
-        public MiiApiResponse(MiiApiCallStatus status, MiiApiErrorCode errorCode, string errorMessage, T data)
+        public MiiApiResponse(MiiApiCallStatus status, MiiApiErrorCode errorCode, string errorMessage, T data, bool isTestUser)
         {
             this.Status = status;
             this.ErrorCode = errorCode;
             this.ErrorMessage = errorMessage;
 
             this.Data = data;
+
+            this.IsTestUser = isTestUser;
         }
 
         public static implicit operator T(MiiApiResponse<T> response)

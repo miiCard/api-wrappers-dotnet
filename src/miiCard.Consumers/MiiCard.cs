@@ -250,7 +250,26 @@ namespace miiCard.Consumers
             get;
             set;
         }
-        
+
+        /// <summary>
+        /// Gets or sets the miiCard referrer code that should be used when making requests.
+        /// </summary>
+        public string ReferrerCode
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets whether the user should be forced to re-select the information they wish to share with your
+        /// application even if they already have a valid relationship with you.
+        /// </summary>
+        public bool ForceClaimsPicker
+        {
+            get;
+            set;
+        }
+
         private IConsumerTokenManager _tokenManager;
         /// <summary>
         /// Gets or sets the IConsumerTokenManager that should be used to store and subsequently look-up
@@ -462,7 +481,24 @@ namespace miiCard.Consumers
             string scope = string.Join("|", scopes);
             var requestParams = new Dictionary<string, string> { { "scope", scope }, };
 
-            var request = consumer.PrepareRequestUserAuthorization(callback.Uri, requestParams, null);
+            var redirectParams = new Dictionary<string, string>();
+
+            if (!string.IsNullOrWhiteSpace(this.ReferrerCode))
+            {
+                redirectParams[MiiCardConsumer.OAUTH_PARAM_REFERRER_CODE] = this.ReferrerCode;
+            }
+
+            if (this.ForceClaimsPicker)
+            {
+                redirectParams[MiiCardConsumer.OAUTH_PARAM_FORCE_CLAIMS_PICKER] = true.ToString();
+            }
+
+            if (redirectParams.Count == 0)
+            {
+                redirectParams = null;
+            }
+
+            var request = consumer.PrepareRequestUserAuthorization(callback.Uri, requestParams, redirectParams);
             consumer.Channel.Send(request);
         }
 

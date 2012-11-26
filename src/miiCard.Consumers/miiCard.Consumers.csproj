@@ -120,12 +120,32 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="PackageForNuget.ps1" />
     <None Include="packages.config" />
+    <None Include="Service References\Service.v1.Claims\Claims.wsdl" />
+    <None Include="Service References\Service.v1.Claims\Claims.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Service.v1.Claims\Claims1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Service.v1.Claims\Claims2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Service.v1.Claims\Claims3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\Service.v1.Claims\Claims4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfArrayOfIdentitySnapshotDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfboolean.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfIdentitySnapshot.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfMiiUserProfile.datasource">
@@ -139,16 +159,6 @@
     <WCFMetadataStorage Include="Service References\Service.v1.Claims\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Service.v1.Claims\Claims.wsdl" />
-    <None Include="Service References\Service.v1.Claims\Claims.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service.v1.Claims\Claims1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service.v1.Claims\Claims2.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Service References\Service.v1.Claims\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>

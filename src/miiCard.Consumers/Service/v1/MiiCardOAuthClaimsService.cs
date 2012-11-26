@@ -34,7 +34,7 @@ namespace miiCard.Consumers.Service.v1
         {
             var response = this.GetAuthenticatedServiceMethodResult(x => x.GetClaims());
 
-            return new MiiApiResponse<MiiUserProfile>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data);
+            return new MiiApiResponse<MiiUserProfile>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
 
         public Stream AssuranceImage(string type)
@@ -48,13 +48,25 @@ namespace miiCard.Consumers.Service.v1
         public MiiApiResponse<bool> IsSocialAccountAssured(string socialAccountId, string socialAccountType)
         {
             var response = this.GetAuthenticatedServiceMethodResult(x => x.IsSocialAccountAssured(socialAccountId, socialAccountType));
-            return new MiiApiResponse<bool>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data);
+            return new MiiApiResponse<bool>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
 
         public MiiApiResponse<bool> IsUserAssured()
         {
             var response = this.GetAuthenticatedServiceMethodResult(x => x.IsUserAssured());
-            return new MiiApiResponse<bool>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data);
+            return new MiiApiResponse<bool>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
+        }
+
+        public MiiApiResponse<IEnumerable<IdentitySnapshotDetails>> GetIdentitySnapshotDetails(string snapshotId = null)
+        {
+            var response = this.GetAuthenticatedServiceMethodResult(x => x.GetIdentitySnapshotDetails(snapshotId));
+            return new MiiApiResponse<IEnumerable<IdentitySnapshotDetails>>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
+        }
+
+        public MiiApiResponse<IdentitySnapshot> GetIdentitySnapshot(string snapshotId)
+        {
+            var response = this.GetAuthenticatedServiceMethodResult(x => x.GetIdentitySnapshot(snapshotId));
+            return new MiiApiResponse<IdentitySnapshot>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
 
         private T GetAuthenticatedServiceMethodResult<T>(Func<ClaimsClient, T> serviceMethodInvoker)
