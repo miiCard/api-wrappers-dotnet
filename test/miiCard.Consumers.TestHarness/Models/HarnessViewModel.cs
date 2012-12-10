@@ -23,6 +23,9 @@ namespace miiCard.Consumers.TestHarness.Models
         [Display(Name = "Referrer code (if any)")]
         public string ReferrerCode { get; set; }
 
+        [Display(Name = "Force claims picker")]
+        public bool ForceClaimsPicker { get; set; }
+
         public string LastGetClaimsResult { get; set; }
         public string LastIsUserAssuredResult { get; set; }
         public string LastIsSocialAccountAssuredResult { get; set; }
@@ -39,5 +42,6 @@ namespace miiCard.Consumers.TestHarness.Models
         public string SnapshotId { get; set; }
 
         public bool ShowOAuthDetailsRequiredError { get; set; }
+        public string OAuthProcessErrorText { get; set; }
     }
 }

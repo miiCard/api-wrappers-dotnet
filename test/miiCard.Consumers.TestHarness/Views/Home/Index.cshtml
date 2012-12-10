@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    @using (@Html.BeginForm()){
+    @using (@Html.BeginForm("Index", "Home")){
 <div class="container">
     <div class="row">
         <div class="span12">
@@ -25,7 +25,7 @@
     <form method="POST">
         <div class="page-header">
             <h1>OAuth token settings
-            <small>Enter manually</small>
+            <small>Enter manually or <input type="submit" value="Login with miiCard »" name="btnLoginWithMiiCard" class="btn btn-large" /></small>
             </h1>
         </div>
         <div class="row">
@@ -34,6 +34,16 @@
                 {
                 <div class="alert alert-error">
                     Keys and secrets are required fields.
+                </div>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.OAuthProcessErrorText))
+                {
+                <div class="alert alert-error">
+                    An error occurred while performing the OAuth exchange:<br />
+                    <code>
+                        @Model.OAuthProcessErrorText
+                    </code>
                 </div>
                 }
 
@@ -56,6 +66,10 @@
                 @Html.LabelFor(x => x.ReferrerCode)
                 @Html.TextBoxFor(x => x.ReferrerCode)
                 @Html.ValidationMessageFor(x => x.ReferrerCode)
+                <br />
+
+                @Html.CheckBoxFor(x => x.ForceClaimsPicker)
+                @Html.LabelFor(x => x.ForceClaimsPicker, new { @style = "display: inline-block;" })
             </div>
         </div>
         <div class="page-header">
@@ -107,11 +121,12 @@
         <div class="row">
             <div class="span12">
                 <h3>Parameters</h3>
-                <label for="social-account-id">Social account ID</label>
-                <input type="text" name="social-account-id" value="@Model.SocialAccountId" />
-                <label for="social-account-type">Social account type (e.g. 'Twitter')</label>
-                <input type="text" name="social-account-type" value="@Model.SocialAccountType" />
-    
+                @Html.LabelFor(x => x.SocialAccountId)
+                @Html.TextBoxFor(x => x.SocialAccountId)
+
+                @Html.LabelFor(x => x.SocialAccountType)
+                @Html.TextBoxFor(x => x.SocialAccountType)
+
                 <h4>Result</h4>
                 @if (!string.IsNullOrWhiteSpace(Model.LastIsSocialAccountAssuredResult))
                 {
@@ -130,12 +145,12 @@
             <div class="span12">
                 <h3>Parameters</h3>
                 <label for="social-account-id">Image type</label>
-                <input type="text" name="assurance-image-type" value="@Model.AssuranceImageType" />
+                @Html.TextBoxFor(x => x.AssuranceImageType)
     
                 <h4>Result</h4>
                 @if (Model.ShowAssuranceImage)
                 {
-                <p><img src="/assuranceimage?oauth-consumer-key=@Model.ConsumerKey&oauth-consumer-secret=@Model.ConsumerSecret&oauth-access-token=@Model.AccessToken&oauth-access-token-secret=@Model.AccessTokenSecret&type=@Model.AssuranceImageType" /></p>
+                <p><img src="/Home/AssuranceImage?consumerKey=@Model.ConsumerKey&consumerSecret=@Model.ConsumerSecret&accessToken=@Model.AccessToken&accessTokenSecret=@Model.AccessTokenSecret&type=@Model.AssuranceImageType" /></p>
                 }
                 <button type="submit" name="btn-invoke" value="assurance-image" class="btn btn-large">Invoke method &raquo;</button>
             </div>
@@ -150,7 +165,7 @@
             <div class="span12">
                 <h3>Parameters</h3>
                 <label for="identitySnapshotDetailsSnapshotId">Snapshot ID (blank to list all)</label>
-                <input type="text" name="snapshot-details-id" value="@Model.SnapshotDetailsId" />
+                @Html.TextBoxFor(x => x.SnapshotDetailsId)
 
                 <h4>Result</h4>
                 @if (!string.IsNullOrWhiteSpace(Model.LastGetIdentitySnapshotDetailsResult))
@@ -170,7 +185,7 @@
             <div class="span12">
                 <h3>Parameters</h3>
                 <label for="identitySnapshotId">Snapshot ID</label>
-                <input type="text" name="snapshot-id" value="@Model.SnapshotId" />
+                @Html.TextBoxFor(x => x.SnapshotId)
 
                 <h4>Result</h4>
                 @if (!string.IsNullOrWhiteSpace(Model.LastGetIdentitySnapshotResult))
