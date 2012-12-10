@@ -41,7 +41,7 @@ The library also contains a drop-in server control for ASP.NET applications, and
 
 ##Test harness
 
-The [/test folder](api-wrappers-dotnet/tree/master/src) contains a quick test harness to allow some interactive testing of the library. It may serve as a guide for how to quickly get up and running with the library but hasn't been extensively checked for correctness or security and should be considered a local diagnostic tool only. It is an MVC4 web application and takes dependencies on several DotNetOpenAuth libraries managed by NuGet.
+The [/test folder](api-wrappers-dotnet/tree/master/test) contains a quick test harness to allow some interactive testing of the library. It may serve as a guide for how to quickly get up and running with the library but hasn't been extensively checked for correctness or security and should be considered a local diagnostic tool only. It is an MVC4 web application and takes dependencies on several DotNetOpenAuth libraries managed by NuGet.
 
 ##Documentation
 
