@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
+  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
   <xs:complexType name="ArrayOfIdentitySnapshotDetails">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="IdentitySnapshotDetails" nillable="true" type="tns:IdentitySnapshotDetails" />
