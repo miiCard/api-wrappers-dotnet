@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional" />
+  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional" />
   <xs:complexType name="MiiApiResponseOfMiiUserProfile">
     <xs:annotation>
       <xs:appinfo>
@@ -22,6 +22,7 @@
   <xs:complexType name="MiiUserProfile">
     <xs:sequence>
       <xs:element minOccurs="0" name="CardImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="EmailAddresses" nillable="true" type="tns:ArrayOfEmailAddress" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HasPublicProfile" type="xs:boolean" />
@@ -189,6 +190,27 @@
         <xs:annotation>
           <xs:appinfo>
             <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1020</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Blacklisted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2000</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ProductDisabled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2010</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ProductDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2020</EnumerationValue>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>

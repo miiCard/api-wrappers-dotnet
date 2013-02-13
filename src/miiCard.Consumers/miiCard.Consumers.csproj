@@ -123,20 +123,20 @@
     <None Include="app.config" />
     <None Include="PackageForNuget.ps1" />
     <None Include="packages.config" />
-    <None Include="Service References\Service.v1.Claims\Claims.wsdl" />
-    <None Include="Service References\Service.v1.Claims\Claims.xsd">
+    <None Include="Service References\Service.v1.Claims\Claims1.wsdl" />
+    <None Include="Service References\Service.v1.Claims\Claims5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Service.v1.Claims\Claims1.xsd">
+    <None Include="Service References\Service.v1.Claims\Claims51.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Service.v1.Claims\Claims2.xsd">
+    <None Include="Service References\Service.v1.Claims\Claims52.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Service.v1.Claims\Claims3.xsd">
+    <None Include="Service References\Service.v1.Claims\Claims53.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\Service.v1.Claims\Claims4.xsd">
+    <None Include="Service References\Service.v1.Claims\Claims54.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfArrayOfIdentitySnapshotDetails.datasource">
@@ -171,7 +171,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\Service.v1.Claims\Claims.disco" />
+    <None Include="Service References\Service.v1.Claims\Claims1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

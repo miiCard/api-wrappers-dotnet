@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
-  <xs:import schemaLocation="https://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
+  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
   <xs:element name="GetClaims">
     <xs:complexType>
       <xs:sequence />
