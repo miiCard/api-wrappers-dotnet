@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional" />
+  <xs:import schemaLocation="http://sts.miicard.com/api/v1/Claims.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://sts.miicard.com/api/v1/Claims.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Transactional" />
   <xs:complexType name="MiiApiResponseOfMiiUserProfile">
     <xs:annotation>
       <xs:appinfo>

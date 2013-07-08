@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
-  <xs:import schemaLocation="http://stsbeta.miicard.com/api/v1/Claims.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+  <xs:import schemaLocation="http://sts.miicard.com/api/v1/Claims.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
+  <xs:import schemaLocation="http://sts.miicard.com/api/v1/Claims.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
   <xs:element name="GetClaims">
     <xs:complexType>
       <xs:sequence />
@@ -80,6 +80,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="GetIdentitySnapshotResult" nillable="true" type="q6:MiiApiResponseOfIdentitySnapshot" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIdentitySnapshotPdf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="snapshotId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIdentitySnapshotPdfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/Message" name="GetIdentitySnapshotPdfResult" type="q7:StreamBody" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

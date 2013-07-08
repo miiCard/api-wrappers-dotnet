@@ -69,6 +69,14 @@ namespace miiCard.Consumers.Service.v1
             return new MiiApiResponse<IdentitySnapshot>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
 
+        public Stream GetIdentitySnapshotPdf(string type)
+        {
+            return this.GetAuthenticatedServiceMethodResult
+            (
+                x => x.GetIdentitySnapshotPdf(type)
+            );
+        }
+
         private T GetAuthenticatedServiceMethodResult<T>(Func<ClaimsClient, T> serviceMethodInvoker)
         {
             ClaimsClient client = null;
