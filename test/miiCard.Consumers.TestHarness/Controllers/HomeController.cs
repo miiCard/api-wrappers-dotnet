@@ -74,6 +74,15 @@ namespace miiCard.Consumers.TestHarness.Controllers
                                 model.LastGetIdentitySnapshotResult = apiWrapper.GetIdentitySnapshot(model.SnapshotId).Prettify();
                             }
                             break;
+                        case "get-identity-snapshot-pdf":
+                            if (!string.IsNullOrWhiteSpace(model.SnapshotPdfId))
+                            {
+                                return new FileStreamResult(apiWrapper.GetIdentitySnapshotPdf(model.SnapshotPdfId), "application/pdf")
+                                { 
+                                    FileDownloadName = model.SnapshotPdfId 
+                                };
+                            }
+                            break;
                     }
                 }
             }

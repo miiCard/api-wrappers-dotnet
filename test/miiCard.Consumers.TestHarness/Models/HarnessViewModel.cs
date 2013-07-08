@@ -40,6 +40,7 @@ namespace miiCard.Consumers.TestHarness.Models
 
         public string SnapshotDetailsId { get; set; }
         public string SnapshotId { get; set; }
+        public string SnapshotPdfId { get; set; }
 
         public bool ShowOAuthDetailsRequiredError { get; set; }
         public string OAuthProcessErrorText { get; set; }

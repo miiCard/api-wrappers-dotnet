@@ -195,6 +195,22 @@
                 <button type="submit" name="btn-invoke" value="get-identity-snapshot" class="btn btn-large">Invoke method &raquo;</button>
             </div>
         </div>
+
+        <div class="page-header">
+            <h2>GetIdentitySnapshotPdf
+            <small>Retrieve a PDF of a previously created snapshot of a miiCard member's identity</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <label for="identitySnapshotId">Snapshot ID</label>
+                @Html.TextBoxFor(x => x.SnapshotPdfId)
+
+                <br />
+                <button type="submit" name="btn-invoke" value="get-identity-snapshot-pdf" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
     </form>
 </div>
     }
