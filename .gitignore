@@ -8,6 +8,8 @@ obj
 *.user
 *.nupkg
 *.snk
+out.txt
+*.nuspec
 
 # mstest test results
 TestResults

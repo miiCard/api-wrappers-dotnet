@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "miiCard.Consumers", "miiCard.Consumers\miiCard.Consumers.csproj", "{9C298161-178A-4D19-82D7-2BA24436A702}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A477E13A-F485-46CB-B5FC-AD696EB81A9F}"
