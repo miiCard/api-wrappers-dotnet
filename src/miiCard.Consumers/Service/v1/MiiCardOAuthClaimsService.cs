@@ -45,6 +45,14 @@ namespace miiCard.Consumers.Service.v1
             );
         }
 
+        public Stream GetCardImage(CardImageConfiguration configuration)
+        {
+            return this.GetAuthenticatedServiceMethodResult
+            (
+                x => x.GetCardImage(configuration)
+            );
+        }
+
         public MiiApiResponse<bool> IsSocialAccountAssured(string socialAccountId, string socialAccountType)
         {
             var response = this.GetAuthenticatedServiceMethodResult(x => x.IsSocialAccountAssured(socialAccountId, socialAccountType));

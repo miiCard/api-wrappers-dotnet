@@ -130,7 +130,7 @@
                 <h4>Result</h4>
                 @if (!string.IsNullOrWhiteSpace(Model.LastIsSocialAccountAssuredResult))
                 {
-                    <p>@Model.LastIsSocialAccountAssuredResult</p>
+                    <p>@Html.Raw(Model.LastIsSocialAccountAssuredResult)</p>
                 }
                 <button type="submit" name="btn-invoke" value="is-social-account-assured" class="btn btn-large">Invoke method &raquo;</button>
             </div>
@@ -150,9 +150,35 @@
                 <h4>Result</h4>
                 @if (Model.ShowAssuranceImage)
                 {
-                <p><img src="/Home/AssuranceImage?consumerKey=@Model.ConsumerKey&consumerSecret=@Model.ConsumerSecret&accessToken=@Model.AccessToken&accessTokenSecret=@Model.AccessTokenSecret&type=@Model.AssuranceImageType" /></p>
+                <p><img src="/Home/AssuranceImage?consumerKey=@Model.ConsumerKey&consumerSecret=@Model.ConsumerSecret&accessToken=@Server.UrlEncode(Model.AccessToken)&accessTokenSecret=@Server.UrlEncode(Model.AccessTokenSecret)&type=@Server.UrlEncode(Model.AssuranceImageType)" /></p>
                 }
                 <button type="submit" name="btn-invoke" value="assurance-image" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h2>GetCardImage
+            <small>Renders a card-image representation of LOA</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <label for="cardImageSnapshotId">Snapshot ID (optional)</label>
+                @Html.TextBoxFor(x => x.CardImageSnapshotId)
+
+                <label for="cardImageFormat">Format (card, signature)</label>
+                @Html.TextBoxFor(x => x.CardImageFormat)
+
+                <label class="checkbox" for="CardImageShowEmailAddress">@Html.CheckBoxFor(x => x.CardImageShowEmailAddress) Show email address</label>
+                <label class="checkbox" for="CardImageShowPhoneNumber">@Html.CheckBoxFor(x => x.CardImageShowPhoneNumber) Show phone number</label>
+
+                <h4>Result</h4>
+                @if (Model.ShowCardImage){
+                <p><img src="/Home/CardImage?consumerKey=@Model.ConsumerKey&consumerSecret=@Model.ConsumerSecret&accessToken=@Server.UrlEncode(Model.AccessToken)&accessTokenSecret=@Server.UrlEncode(Model.AccessTokenSecret)&snapshotId=@Server.UrlEncode(Model.CardImageSnapshotId ?? "")&format=@Server.UrlEncode(Model.CardImageFormat ?? "")&showEmailAddress=@Model.CardImageShowEmailAddress.ToString()&showPhoneNumber=@Model.CardImageShowPhoneNumber.ToString()" /></p>
+                }
+
+                <button type="submit" name="btn-invoke" value="card-image" class="btn btn-large">Invoke method &raquo;</button>
             </div>
         </div>
         

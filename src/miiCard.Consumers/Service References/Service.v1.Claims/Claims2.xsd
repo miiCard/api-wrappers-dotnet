@@ -282,4 +282,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MiiApiResponseOfIdentitySnapshot" nillable="true" type="tns:MiiApiResponseOfIdentitySnapshot" />
+  <xs:complexType name="CardImageConfiguration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Format" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowEmailAddress" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowPhoneNumber" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SnapshotId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CardImageConfiguration" nillable="true" type="tns:CardImageConfiguration" />
 </xs:schema>

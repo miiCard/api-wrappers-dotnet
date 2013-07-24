@@ -65,6 +65,9 @@ namespace miiCard.Consumers.TestHarness.Controllers
                                 model.ShowAssuranceImage = true;
                             }
                             break;
+                        case "card-image":
+                            model.ShowCardImage = true;
+                            break;
                         case "get-identity-snapshot-details":
                             model.LastGetIdentitySnapshotDetailsResult = apiWrapper.GetIdentitySnapshotDetails(model.SnapshotDetailsId).Prettify();
                             break;
@@ -169,6 +172,31 @@ namespace miiCard.Consumers.TestHarness.Controllers
                 result = new FileStreamResult(apiWrapper.AssuranceImage(type), "image/png");
             }
             catch (Exception ex)
+            {
+                result = new FileStreamResult(new MemoryStream(), "image/png");
+            }
+
+            return result;
+        }
+
+        public FileStreamResult CardImage(string consumerKey, string consumerSecret, string accessToken, string accessTokenSecret, string snapshotId, string format, bool showEmailAddress, bool showPhoneNumber)
+        {
+            var apiWrapper = new miiCard.Consumers.Service.v1.MiiCardOAuthClaimsService(consumerKey, consumerSecret, accessToken, accessTokenSecret);
+
+            FileStreamResult result = null;
+            try
+            {
+                var configuration = new Service.v1.Claims.CardImageConfiguration()
+                {
+                    Format = format,
+                    ShowEmailAddress = showEmailAddress,
+                    ShowPhoneNumber = showPhoneNumber,
+                    SnapshotId = snapshotId
+                };
+
+                result = new FileStreamResult(apiWrapper.GetCardImage(configuration), "image/png");
+            }
+            catch (Exception)
             {
                 result = new FileStreamResult(new MemoryStream(), "image/png");
             }

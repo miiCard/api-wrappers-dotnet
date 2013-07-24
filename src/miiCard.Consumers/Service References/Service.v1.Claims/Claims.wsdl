@@ -76,6 +76,12 @@
   <wsdl:message name="IClaims_GetIdentitySnapshotPdf_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetIdentitySnapshotPdfResponse" />
   </wsdl:message>
+  <wsdl:message name="IClaims_GetCardImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardImage" />
+  </wsdl:message>
+  <wsdl:message name="IClaims_GetCardImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardImageResponse" />
+  </wsdl:message>
   <wsdl:portType name="IClaims">
     <wsdl:operation name="GetClaims">
       <wsdl:input wsaw:Action="http://tempuri.org/IClaims/GetClaims" message="tns:IClaims_GetClaims_InputMessage" />
@@ -104,6 +110,10 @@
     <wsdl:operation name="GetIdentitySnapshotPdf">
       <wsdl:input wsaw:Action="http://tempuri.org/IClaims/GetIdentitySnapshotPdf" message="tns:IClaims_GetIdentitySnapshotPdf_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClaims/GetIdentitySnapshotPdfResponse" message="tns:IClaims_GetIdentitySnapshotPdf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClaims/GetCardImage" message="tns:IClaims_GetCardImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClaims/GetCardImageResponse" message="tns:IClaims_GetCardImage_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IClaims" type="tns:IClaims">
@@ -165,6 +175,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetIdentitySnapshotPdf">
       <soap:operation soapAction="http://tempuri.org/IClaims/GetIdentitySnapshotPdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardImage">
+      <soap:operation soapAction="http://tempuri.org/IClaims/GetCardImage" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

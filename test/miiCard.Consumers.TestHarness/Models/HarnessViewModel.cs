@@ -35,6 +35,12 @@ namespace miiCard.Consumers.TestHarness.Models
         public bool ShowAssuranceImage { get; set; }
         public string AssuranceImageType { get; set; }
 
+        public bool ShowCardImage { get; set; }
+        public string CardImageFormat { get; set; }
+        public string CardImageSnapshotId { get; set; }
+        public bool CardImageShowEmailAddress { get; set; }
+        public bool CardImageShowPhoneNumber { get; set; }
+
         public string SocialAccountId { get; set; }
         public string SocialAccountType { get; set; }
 
