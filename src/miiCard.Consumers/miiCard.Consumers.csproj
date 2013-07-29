@@ -69,13 +69,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetOpenAuth.Core">
-      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.2.12119\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+      <HintPath>..\..\packages\DotNetOpenAuth.Core.4.0.2.12119\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth">
-      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.2.12119\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+      <HintPath>..\..\packages\DotNetOpenAuth.OAuth.Core.4.0.2.12119\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="DotNetOpenAuth.OAuth.Consumer">
-      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.2.12119\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+      <HintPath>..\..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.2.12119\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -103,13 +103,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Service References\Service.v1.Claims\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="ServiceUrls.cs" />
     <Compile Include="Service\v1\MiiApiResponse.cs" />
+    <Compile Include="Service\v1\MiiCardOAuthFinancialService.cs" />
     <Compile Include="Service\v1\MiiCardOAuthServiceBase.cs" />
     <Compile Include="Service\v1\MiiCardOAuthClaimsService.cs" />
   </ItemGroup>
@@ -123,55 +119,19 @@
     <None Include="app.config" />
     <None Include="PackageForNuget.ps1" />
     <None Include="packages.config" />
-    <None Include="Service References\Service.v1.Claims\Claims.wsdl" />
-    <None Include="Service References\Service.v1.Claims\Claims.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service.v1.Claims\Claims1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service.v1.Claims\Claims2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service.v1.Claims\Claims3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service.v1.Claims\Claims4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfArrayOfIdentitySnapshotDetails.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfboolean.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfIdentitySnapshot.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\Service.v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfMiiUserProfile.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\Service.v1.Claims\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Service.v1.Claims\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Service.v1.Claims\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Service.v1.Claims\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\Service.v1.Claims\Claims.disco" />
+    <ProjectReference Include="..\miiCard.Consumers.Service.Claims\miiCard.Consumers.Service.Claims.csproj">
+      <Project>{5d4ef8fc-fc21-4105-a8f4-07832306115b}</Project>
+      <Name>miiCard.Consumers.Service.Claims</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\miiCard.Consumers.Service.Financial\miiCard.Consumers.Service.Financial.csproj">
+      <Project>{b7ab5c3a-b6d6-470c-989e-18fc507169cc}</Project>
+      <Name>miiCard.Consumers.Service.Financial</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

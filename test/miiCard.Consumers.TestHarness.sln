@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BDAEC3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "miiCard.Consumers", "..\src\miiCard.Consumers\miiCard.Consumers.csproj", "{9C298161-178A-4D19-82D7-2BA24436A702}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "miiCard.Consumers.Service.Claims", "..\src\miiCard.Consumers.Service.Claims\miiCard.Consumers.Service.Claims.csproj", "{5D4EF8FC-FC21-4105-A8F4-07832306115B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "miiCard.Consumers.Service.Financial", "..\src\miiCard.Consumers.Service.Financial\miiCard.Consumers.Service.Financial.csproj", "{B7AB5C3A-B6D6-470C-989E-18FC507169CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,8 +33,20 @@ Global
 		{9C298161-178A-4D19-82D7-2BA24436A702}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C298161-178A-4D19-82D7-2BA24436A702}.NuGet Package|Any CPU.ActiveCfg = NuGet Package|Any CPU
 		{9C298161-178A-4D19-82D7-2BA24436A702}.NuGet Package|Any CPU.Build.0 = NuGet Package|Any CPU
-		{9C298161-178A-4D19-82D7-2BA24436A702}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C298161-178A-4D19-82D7-2BA24436A702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C298161-178A-4D19-82D7-2BA24436A702}.Release|Any CPU.ActiveCfg = NuGet Package|Any CPU
+		{9C298161-178A-4D19-82D7-2BA24436A702}.Release|Any CPU.Build.0 = NuGet Package|Any CPU
+		{5D4EF8FC-FC21-4105-A8F4-07832306115B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D4EF8FC-FC21-4105-A8F4-07832306115B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D4EF8FC-FC21-4105-A8F4-07832306115B}.NuGet Package|Any CPU.ActiveCfg = Release|Any CPU
+		{5D4EF8FC-FC21-4105-A8F4-07832306115B}.NuGet Package|Any CPU.Build.0 = Release|Any CPU
+		{5D4EF8FC-FC21-4105-A8F4-07832306115B}.Release|Any CPU.ActiveCfg = NuGet Package|Any CPU
+		{5D4EF8FC-FC21-4105-A8F4-07832306115B}.Release|Any CPU.Build.0 = NuGet Package|Any CPU
+		{B7AB5C3A-B6D6-470C-989E-18FC507169CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7AB5C3A-B6D6-470C-989E-18FC507169CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7AB5C3A-B6D6-470C-989E-18FC507169CC}.NuGet Package|Any CPU.ActiveCfg = Release|Any CPU
+		{B7AB5C3A-B6D6-470C-989E-18FC507169CC}.NuGet Package|Any CPU.Build.0 = Release|Any CPU
+		{B7AB5C3A-B6D6-470C-989E-18FC507169CC}.Release|Any CPU.ActiveCfg = NuGet Package|Any CPU
+		{B7AB5C3A-B6D6-470C-989E-18FC507169CC}.Release|Any CPU.Build.0 = NuGet Package|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

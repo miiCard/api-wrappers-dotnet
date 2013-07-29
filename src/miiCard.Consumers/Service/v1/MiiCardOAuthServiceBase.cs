@@ -88,7 +88,7 @@ namespace miiCard.Consumers.Service.v1
             this.UseDeclarativeBindingConfiguration = useDeclarativeBinding;
         }
 
-        protected Binding GetDefaultBinding()
+        protected virtual Binding GetDefaultBinding()
         {
             // Our default binding is an HTTPS SOAP request
             BasicHttpBinding toReturn = new BasicHttpBinding(BasicHttpSecurityMode.Transport);

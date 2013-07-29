@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Financial" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Financial" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="FinancialRefreshStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="State" type="tns:RefreshState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinancialRefreshStatus" nillable="true" type="tns:FinancialRefreshStatus" />
+  <xs:simpleType name="RefreshState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="DataAvailable" />
+      <xs:enumeration value="InProgress" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RefreshState" nillable="true" type="tns:RefreshState" />
+  <xs:complexType name="MiiFinancialData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FinancialProviders" nillable="true" type="tns:ArrayOfFinancialProvider" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MiiFinancialData" nillable="true" type="tns:MiiFinancialData" />
+  <xs:complexType name="ArrayOfFinancialProvider">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FinancialProvider" nillable="true" type="tns:FinancialProvider" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFinancialProvider" nillable="true" type="tns:ArrayOfFinancialProvider" />
+  <xs:complexType name="FinancialProvider">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FinancialAccounts" nillable="true" type="tns:ArrayOfFinancialAccount" />
+      <xs:element minOccurs="0" name="ProviderName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinancialProvider" nillable="true" type="tns:FinancialProvider" />
+  <xs:complexType name="ArrayOfFinancialAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FinancialAccount" nillable="true" type="tns:FinancialAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFinancialAccount" nillable="true" type="tns:ArrayOfFinancialAccount" />
+  <xs:complexType name="FinancialAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClosingBalance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CreditsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditsSum" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CurrencyIso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DebitsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="DebitsSum" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Holder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpdatedUtc" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SortCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Transactions" nillable="true" type="tns:ArrayOfFinancialTransaction" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinancialAccount" nillable="true" type="tns:FinancialAccount" />
+  <xs:complexType name="ArrayOfFinancialTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FinancialTransaction" nillable="true" type="tns:FinancialTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFinancialTransaction" nillable="true" type="tns:ArrayOfFinancialTransaction" />
+  <xs:complexType name="FinancialTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountCredited" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="AmountDebited" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinancialTransaction" nillable="true" type="tns:FinancialTransaction" />
+</xs:schema>

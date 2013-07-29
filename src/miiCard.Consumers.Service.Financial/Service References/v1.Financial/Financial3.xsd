@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sts.miicard.com/api/v1/Financial.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://sts.miicard.com/api/v1/Financial.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Financial" />
+  <xs:complexType name="MiiApiResponseOfboolean">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MiiApiResponseOf{0}" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ErrorCode" type="tns:MiiApiErrorCode" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsTestUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" type="tns:MiiApiCallStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MiiApiResponseOfboolean" nillable="true" type="tns:MiiApiResponseOfboolean" />
+  <xs:simpleType name="MiiApiErrorCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="AccessRevoked">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">100</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UserSubscriptionLapsed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">200</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TransactionalSupportDisabled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1000</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="FinancialDataSupportDisabled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1001</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DevelopmentTransactionalSupportOnly">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1010</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="InvalidSnapshotId">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1020</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Blacklisted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2000</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ProductDisabled">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2010</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ProductDeleted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2020</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Exception">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10000</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MiiApiErrorCode" nillable="true" type="tns:MiiApiErrorCode" />
+  <xs:simpleType name="MiiApiCallStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="Failure" />
+      <xs:enumeration value="Pending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MiiApiCallStatus" nillable="true" type="tns:MiiApiCallStatus" />
+  <xs:complexType name="MiiApiResponseOfFinancialRefreshStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MiiApiResponseOf{0}" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="FinancialRefreshStatus" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Financial" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Financial" minOccurs="0" name="Data" nillable="true" type="q1:FinancialRefreshStatus" />
+      <xs:element minOccurs="0" name="ErrorCode" type="tns:MiiApiErrorCode" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsTestUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" type="tns:MiiApiCallStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MiiApiResponseOfFinancialRefreshStatus" nillable="true" type="tns:MiiApiResponseOfFinancialRefreshStatus" />
+  <xs:complexType name="MiiApiResponseOfMiiFinancialData">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MiiApiResponseOf{0}" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="MiiFinancialData" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Financial" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api.Financial" minOccurs="0" name="Data" nillable="true" type="q2:MiiFinancialData" />
+      <xs:element minOccurs="0" name="ErrorCode" type="tns:MiiApiErrorCode" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsTestUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" type="tns:MiiApiCallStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MiiApiResponseOfMiiFinancialData" nillable="true" type="tns:MiiApiResponseOfMiiFinancialData" />
+</xs:schema>

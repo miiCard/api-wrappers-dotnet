@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="page-header">
-            <h1>API methods
+            <h1>Claims API methods
             <small>Find the method you want to invoke</small>
             </h1>
         </div>
@@ -235,6 +235,89 @@
 
                 <br />
                 <button type="submit" name="btn-invoke" value="get-identity-snapshot-pdf" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+
+        <div class="page-header">
+            <h2>GetAuthenticationDetails
+            <small>Retrieve details of how a miiCard member authenticated</small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <h3>Parameters</h3>
+                <label for="authenticationDetailsSnapshotId">Snapshot ID</label>
+                @Html.TextBoxFor(x => x.AuthenticationDetailsSnapshotId)
+
+                <h4>Result</h4>
+                @if (!string.IsNullOrWhiteSpace(Model.LastGetAuthenticationDetailsResult))
+                {
+                    <p>@Html.Raw(Model.LastGetAuthenticationDetailsResult)</p>
+                }
+                <button type="submit" name="btn-invoke" value="get-authentication-details" class="btn btn-large">Invoke method &raquo;</button>
+            </div>
+        </div>
+        
+        <div class="financials">
+            <div class="page-header">
+                <h1>Financial API methods
+                <small>Find the method you want to invoke</small>
+                </h1>
+            </div>
+
+            <div class="page-header">
+                <h2>IsRefreshInProgress
+                <small>Checks if a financial data refresh is ongoing</small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <h4>Result</h4>
+                    @if (!string.IsNullOrWhiteSpace(Model.LastIsRefreshInProgressResult))
+                    {
+                        <p>@Html.Raw(Model.LastIsRefreshInProgressResult)</p>
+                    }
+
+                    <button type="submit" name="btn-invoke" value="is-refresh-in-progress" class="btn btn-large">Invoke method &raquo;</button>
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h2>RefreshFinancialData
+                <small>Requests financial data be updated</small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <h4>Result</h4>
+                    @if (!string.IsNullOrWhiteSpace(Model.LastRefreshFinancialDataResult))
+                    {
+                        <p>@Html.Raw(Model.LastRefreshFinancialDataResult)</p>
+                    }
+
+                    <button type="submit" name="btn-invoke" value="refresh-financial-data" class="btn btn-large">Invoke method &raquo;</button>
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h2>GetFinancialTransactions
+                <small>Retrieve financial transactions that the member has shared</small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <h4>Result</h4>
+                
+                    <label for="financialDataModestyLimit">Hide values absolutely greater than this for modesty (blank to disable)</label>
+                    @Html.TextBoxFor(x => x.FinancialDataModestyLimit) <br />
+
+                    @if (!string.IsNullOrWhiteSpace(Model.LastGetFinancialTransactionsResult))
+                    {
+                        <p>@Html.Raw(Model.LastGetFinancialTransactionsResult)</p>
+                    }
+
+                    <button type="submit" name="btn-invoke" value="get-financial-transactions" class="btn btn-large">Invoke method &raquo;</button>
+                </div>
             </div>
         </div>
     </form>

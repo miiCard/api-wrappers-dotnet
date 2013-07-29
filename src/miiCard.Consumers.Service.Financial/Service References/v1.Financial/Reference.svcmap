@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0fad5215-670c-41bf-aef0-284d778a54c4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sts.miicard.com/api/v1/Financial.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Financial.xsd" MetadataType="Schema" ID="f1350a44-b750-4158-9d8a-cad4795a4bfc" SourceId="1" SourceUrl="http://sts.miicard.com/api/v1/Financial.svc?xsd=xsd0" />
+    <MetadataFile FileName="Financial1.xsd" MetadataType="Schema" ID="142262b1-5e00-49c0-97a7-d0a646efe297" SourceId="1" SourceUrl="http://sts.miicard.com/api/v1/Financial.svc?xsd=xsd3" />
+    <MetadataFile FileName="Financial.disco" MetadataType="Disco" ID="8ca328b4-691a-4c27-a5a7-92496d6e7bf7" SourceId="1" SourceUrl="http://sts.miicard.com/api/v1/Financial.svc?disco" />
+    <MetadataFile FileName="Financial2.xsd" MetadataType="Schema" ID="ea148c4b-7c34-4366-a24d-e72ded8c338f" SourceId="1" SourceUrl="http://sts.miicard.com/api/v1/Financial.svc?xsd=xsd1" />
+    <MetadataFile FileName="Financial3.xsd" MetadataType="Schema" ID="97bca7b9-9554-48d5-8991-1754d760672e" SourceId="1" SourceUrl="http://sts.miicard.com/api/v1/Financial.svc?xsd=xsd2" />
+    <MetadataFile FileName="Financial.wsdl" MetadataType="Wsdl" ID="abfaabe9-dcb5-4e4c-a26e-90c428720904" SourceId="1" SourceUrl="http://sts.miicard.com/api/v1/Financial.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

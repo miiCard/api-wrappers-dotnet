@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using miiCard.Consumers.Service.v1.Claims;
+using miiCard.Consumers.Service.v1;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.IO;
+using miiCard.Consumers.Service.v1.Claims;
 
 namespace miiCard.Consumers.Service.v1
 {
@@ -83,6 +84,12 @@ namespace miiCard.Consumers.Service.v1
             (
                 x => x.GetIdentitySnapshotPdf(type)
             );
+        }
+
+        public MiiApiResponse<AuthenticationDetails> GetAuthenticationDetails(string snapshotId)
+        {
+            var response = this.GetAuthenticatedServiceMethodResult(x => x.GetAuthenticationDetails(snapshotId));
+            return new MiiApiResponse<AuthenticationDetails>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
 
         private T GetAuthenticatedServiceMethodResult<T>(Func<ClaimsClient, T> serviceMethodInvoker)

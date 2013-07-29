@@ -16,4 +16,4 @@ Foreach-Object {
 } | Set-Content miiCard.Consumers.nuspec 
 
 <# Finally, package the thing #>
-nuget pack miiCard.Consumers.csproj -Prop Configuration="Nuget Package"
+nuget pack miiCard.Consumers.csproj -Prop Configuration="Nuget Package" -IncludeReferencedProjects

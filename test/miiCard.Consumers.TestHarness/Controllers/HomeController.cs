@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
 using DotNetOpenAuth.OAuth.Messages;
 using miiCard.Consumers.Infrastructure;
+using miiCard.Consumers.Service.v1;
 using miiCard.Consumers.TestHarness.Extensions;
 using miiCard.Consumers.TestHarness.Models;
 
@@ -32,7 +34,19 @@ namespace miiCard.Consumers.TestHarness.Controllers
         {
             if (!string.IsNullOrWhiteSpace(Request.Params["btnLoginWithMiiCard"]))
             {
-                return this.LoginWithMiiCard(model);
+                // Cover off certain edge cases where the test harness is started then restarted
+                // killing session state - we need a session active to perform the OAuth exchange and the
+                // redirect that LoginWithMiiCard causes can prevent that from happening unless it's in place
+                // before it's called
+                if (!(Session["Running"] as bool? ?? false))
+                {
+                    Session["Running"] = true;
+                    return View(model);
+                }
+                else
+                {
+                    return this.LoginWithMiiCard(model);
+                }
             }
 
             if (!string.IsNullOrWhiteSpace(this.Request.Params["btn-invoke"]))
@@ -43,8 +57,9 @@ namespace miiCard.Consumers.TestHarness.Controllers
                 }
                 else
                 {
-                    var apiWrapper = new miiCard.Consumers.Service.v1.MiiCardOAuthClaimsService(model.ConsumerKey, model.ConsumerSecret, model.AccessToken, model.AccessTokenSecret);
-
+                    var apiWrapper = new MiiCardOAuthClaimsService(model.ConsumerKey, model.ConsumerSecret, model.AccessToken, model.AccessTokenSecret);
+                    var financialWrapper = new MiiCardOAuthFinancialService(model.ConsumerKey, model.ConsumerSecret, model.AccessToken, model.AccessTokenSecret);
+                    
                     switch (this.Request.Params["btn-invoke"])
                     {
                         case "get-claims":
@@ -85,6 +100,19 @@ namespace miiCard.Consumers.TestHarness.Controllers
                                     FileDownloadName = model.SnapshotPdfId 
                                 };
                             }
+                            break;
+                        case "get-authentication-details":
+                            model.LastGetAuthenticationDetailsResult = apiWrapper.GetAuthenticationDetails(model.AuthenticationDetailsSnapshotId).Prettify();
+                            break;
+                        case "refresh-financial-data":
+                            model.LastRefreshFinancialDataResult = financialWrapper.RefreshFinancialData().Prettify();
+                            break;
+                        case "is-refresh-in-progress":
+                            model.LastIsRefreshInProgressResult = financialWrapper.IsRefreshInProgress().Prettify();
+                            break;
+                        case "get-financial-transactions": 
+                            var configuration = new PrettifyConfiguration() { ModestyLimit = model.FinancialDataModestyLimit };
+                            model.LastGetFinancialTransactionsResult = financialWrapper.GetFinancialTransactions().Prettify(configuration);
                             break;
                     }
                 }

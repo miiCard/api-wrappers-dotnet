@@ -31,6 +31,10 @@ namespace miiCard.Consumers.TestHarness.Models
         public string LastIsSocialAccountAssuredResult { get; set; }
         public string LastGetIdentitySnapshotDetailsResult { get; set; }
         public string LastGetIdentitySnapshotResult { get; set; }
+        public string LastGetFinancialTransactionsResult { get; set; }
+        public string LastGetAuthenticationDetailsResult { get; set; }
+        public string LastRefreshFinancialDataResult { get; set; }
+        public string LastIsRefreshInProgressResult { get; set; }
 
         public bool ShowAssuranceImage { get; set; }
         public string AssuranceImageType { get; set; }
@@ -47,8 +51,17 @@ namespace miiCard.Consumers.TestHarness.Models
         public string SnapshotDetailsId { get; set; }
         public string SnapshotId { get; set; }
         public string SnapshotPdfId { get; set; }
-
+        public string AuthenticationDetailsSnapshotId { get; set; }
+        
         public bool ShowOAuthDetailsRequiredError { get; set; }
         public string OAuthProcessErrorText { get; set; }
+
+        [Display(Name = "Hide values absolutely greater than this for modesty (blank to disable)")]
+        public decimal? FinancialDataModestyLimit { get; set; }
+
+        public HarnessViewModel()
+        {
+            this.FinancialDataModestyLimit = 100m;
+        }
     }
 }
