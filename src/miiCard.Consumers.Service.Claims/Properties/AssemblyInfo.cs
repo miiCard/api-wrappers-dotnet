@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("miiCard.Consumers.Service.Claims")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription(".NET wrapper classes for the miiCard web API")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("miiCard Limited")]
 [assembly: AssemblyProduct("miiCard.Consumers.Service.Claims")]
