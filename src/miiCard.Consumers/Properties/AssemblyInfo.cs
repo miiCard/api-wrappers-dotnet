@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("miiCard.Consumers")]
 [assembly: AssemblyDescription(".NET wrapper classes for the miiCard web API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("miiCard.com")]
+[assembly: AssemblyCompany("miiCard Limited")]
 [assembly: AssemblyProduct("miiCard.Consumers")]
-[assembly: AssemblyCopyright("Copyright © miiCard.com 2013")]
+[assembly: AssemblyCopyright("Copyright © miiCard Limited 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
