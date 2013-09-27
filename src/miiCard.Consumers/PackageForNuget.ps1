@@ -15,5 +15,15 @@ Foreach-Object {
 	   -replace "<tags>.*<\/tags>", "<tags>miiCard identity assurance security miicard.com</tags>"
 } | Set-Content miiCard.Consumers.nuspec 
 
+[xml]$nuspec = [System.Xml.XmlDocument](Get-Content "miiCard.Consumers.nuspec")
+$dependencyElement = $nuspec.CreateElement("dependencies")
+$dnoaElement = $nuspec.CreateElement("dependency")
+$dnoaElement.SetAttribute("id", "DotNetOpenAuth.OAuth.Consumer")
+$dnoaElement.SetAttribute("version", "4.0.2.12119")
+
+$dependencyElement.AppendChild($dnoaElement)
+$nuspec.DocumentElement.FirstChild.AppendChild($dependencyElement)
+$nuspec.Save("miiCard.Consumers.nuspec")
+
 <# Finally, package the thing #>
 nuget pack miiCard.Consumers.csproj -Prop Configuration="Nuget Package" -IncludeReferencedProjects

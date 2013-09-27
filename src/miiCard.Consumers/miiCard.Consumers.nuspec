@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
@@ -11,8 +11,12 @@
     <iconUrl>http://www.miicard.com/sites/default/files/dev/nuget_32x32.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
     <copyright>Copyright 2013</copyright>
     <tags>miiCard identity assurance security miicard.com</tags>
+    <dependencies>
+      <dependency id="DotNetOpenAuth.OAuth.Consumer" version="4.0.2.12119" />
+    </dependencies>
   </metadata>
 </package>

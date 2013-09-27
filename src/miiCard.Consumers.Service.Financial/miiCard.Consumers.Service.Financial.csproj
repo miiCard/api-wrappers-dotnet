@@ -39,6 +39,12 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>signing.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -77,6 +83,7 @@
     <None Include="Service References\v1.Financial\Financial3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="signing.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\miiCard.Consumers.Service.Claims\miiCard.Consumers.Service.Claims.csproj">
