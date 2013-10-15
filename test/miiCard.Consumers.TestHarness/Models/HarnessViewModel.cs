@@ -26,6 +26,9 @@ namespace miiCard.Consumers.TestHarness.Models
         [Display(Name = "Force claims picker")]
         public bool ForceClaimsPicker { get; set; }
 
+        [Display(Name = "Signup mode (initially redirect to a signup, rather than a login page)")]
+        public bool SignupMode { get; set; }
+
         public string LastGetClaimsResult { get; set; }
         public string LastIsUserAssuredResult { get; set; }
         public string LastIsSocialAccountAssuredResult { get; set; }
@@ -35,6 +38,7 @@ namespace miiCard.Consumers.TestHarness.Models
         public string LastGetAuthenticationDetailsResult { get; set; }
         public string LastRefreshFinancialDataResult { get; set; }
         public string LastIsRefreshInProgressResult { get; set; }
+        public string LastDirectorySearchResult { get; set; }
 
         public bool ShowAssuranceImage { get; set; }
         public string AssuranceImageType { get; set; }
@@ -58,6 +62,10 @@ namespace miiCard.Consumers.TestHarness.Models
 
         [Display(Name = "Hide values absolutely greater than this for modesty (blank to disable)")]
         public decimal? FinancialDataModestyLimit { get; set; }
+
+        public string DirectoryCriterion { get; set; }
+        public string DirectoryCriterionValue { get; set; }
+        public bool DirectoryCriterionValueHashed { get; set; }
 
         public HarnessViewModel()
         {

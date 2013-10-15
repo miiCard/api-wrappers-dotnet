@@ -51,7 +51,15 @@ namespace miiCard.Consumers.TestHarness.Controllers
 
             if (!string.IsNullOrWhiteSpace(this.Request.Params["btn-invoke"]))
             {
-                if (string.IsNullOrWhiteSpace(model.ConsumerKey) || string.IsNullOrWhiteSpace(model.ConsumerSecret) || string.IsNullOrWhiteSpace(model.AccessToken) || string.IsNullOrWhiteSpace(model.AccessTokenSecret))
+                if (this.Request.Params["btn-invoke"] == "directory-search")
+                {
+                    var response = new MiiCardDirectoryService().FindBy(model.DirectoryCriterion, model.DirectoryCriterionValue, model.DirectoryCriterionValueHashed);
+                    if (response != null)
+                    {
+                        model.LastDirectorySearchResult = MiiApiResponseExtensions.RenderUserProfile(response);
+                    }
+                }
+                else if (string.IsNullOrWhiteSpace(model.ConsumerKey) || string.IsNullOrWhiteSpace(model.ConsumerSecret) || string.IsNullOrWhiteSpace(model.AccessToken) || string.IsNullOrWhiteSpace(model.AccessTokenSecret))
                 {
                     model.ShowOAuthDetailsRequiredError = true;
                 }
@@ -121,6 +129,15 @@ namespace miiCard.Consumers.TestHarness.Controllers
             return View(model);
         }
 
+        public ActionResult SHA1(string identifier)
+        {
+            return new ContentResult()
+            {
+                Content = MiiCardDirectoryService.HashIdentifier(identifier),
+                ContentType = "text/plain"
+            };
+        }
+
         public ActionResult LoginWithMiiCard(HarnessViewModel model)
         {
             if (this.ModelState.IsValid)
@@ -137,7 +154,7 @@ namespace miiCard.Consumers.TestHarness.Controllers
                 if (!string.IsNullOrWhiteSpace(model.ReferrerCode))
                 {
                     // Tack in the referrer code to see how this manifests in the signup process
-                    redirectParams["referrer"] = model.ReferrerCode;
+                    redirectParams[MiiCardConsumer.OAUTH_PARAM_REFERRER_CODE] = model.ReferrerCode;
                 }
 
                 if (model.ForceClaimsPicker)
@@ -146,7 +163,12 @@ namespace miiCard.Consumers.TestHarness.Controllers
                     // relying party described by the consumer key and the user who logs in
                     // Note: skipping the claims picker in the situation described needs to be enabled by
                     // miiCard - please contact support if you think you want to make use of this feature
-                    redirectParams["force_claims"] = "true";
+                    redirectParams[MiiCardConsumer.OAUTH_PARAM_FORCE_CLAIMS_PICKER] = "true";
+                }
+
+                if (model.SignupMode)
+                {
+                    redirectParams[MiiCardConsumer.OAUTH_PARAM_SIGNUP_MODE] = "true";
                 }
 
                 if (redirectParams.Count == 0)

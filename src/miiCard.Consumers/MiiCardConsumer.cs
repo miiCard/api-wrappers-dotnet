@@ -11,6 +11,7 @@ namespace miiCard.Consumers
     {
         public static readonly string OAUTH_PARAM_FORCE_CLAIMS_PICKER = "force_claims";
         public static readonly string OAUTH_PARAM_REFERRER_CODE = "referrer";
+        public static readonly string OAUTH_PARAM_SIGNUP_MODE = "signup";
 
         public static ServiceProviderDescription ServiceDescription
         {

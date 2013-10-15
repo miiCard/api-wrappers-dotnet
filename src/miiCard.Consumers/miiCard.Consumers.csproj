@@ -76,6 +76,9 @@
     <Reference Include="DotNetOpenAuth.OAuth.Consumer">
       <HintPath>..\..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.2.12119\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.5.0.7\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -104,6 +107,7 @@
     </Compile>
     <Compile Include="ServiceUrls.cs" />
     <Compile Include="Service\v1\MiiApiResponse.cs" />
+    <Compile Include="Service\v1\MiiCardDirectoryService.cs" />
     <Compile Include="Service\v1\MiiCardOAuthFinancialService.cs" />
     <Compile Include="Service\v1\MiiCardOAuthServiceBase.cs" />
     <Compile Include="Service\v1\MiiCardOAuthClaimsService.cs" />

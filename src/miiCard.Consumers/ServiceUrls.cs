@@ -13,6 +13,7 @@ namespace miiCard.Consumers
         private static readonly string _oAuthEndpoint = "https://sts.miicard.com/auth/OAuth.ashx";
         private static readonly string _claimsServiceEndpoint = "https://sts.miicard.com/api/v1/Claims.svc";
         private static readonly string _financialServiceEndpoint = "https://sts.miicard.com/api/v1/Financial.svc";
+        private static readonly string _directoryServiceEndpoint = "https://sts.miicard.com/api/v1/Members";
 
         /// <summary>
         /// Gets the endpoint URL used for OAuth authorisation
@@ -36,6 +37,14 @@ namespace miiCard.Consumers
         public static string FinancialServiceEndpoint
         {
             get { return _financialServiceEndpoint; }
+        }
+
+        /// <summary>
+        /// Gets the endpoint URL used for the Directory service
+        /// </summary>
+        public static string DirectoryServiceEndpoint
+        {
+            get { return _directoryServiceEndpoint; }
         }
     }
 }

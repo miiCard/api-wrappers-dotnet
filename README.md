@@ -14,13 +14,16 @@ You can obtain a consumer key and secret from miiCard by contacting us on our su
 
 ##Usage
 
-### API wrapper
+## Obtaining an OAuth access token and secret
 
-To use the API wrapper, you'll need:
+How you do this depends on if you're using WebForms or MVC (or some other framework). See the [.NET Wrapper Library documentation](http://www.miicard.com/developers/libraries-components/net-library) for more information.
+
+To use the Claims and Financial API wrappers, you'll need:
 
 * Consumer key and secret (available by request from miiCard)
 * An access token and secret for a given miiCard member, obtained by pushing the member through the OAuth workflow
 
+### Claims API wrapper
 The API wrapper wraps the methods of the miiCard API and makes them easily accessible to managed code. To start, new one up:
 
     var apiWrapper =
@@ -34,6 +37,28 @@ Then call methods on the wrapper corresponding to the miiCard Claims API methods
 
     var response = apiWrapper.GetClaims();
     var userProfile = response.Data;
+
+### Financial API
+
+Accessing the Financial API is the same, but with a different wrapper type - MiiCardOAuthFinancialService:
+
+    var apiWrapper = 
+        new miiCard.Consumers.Service.v1.MiiCardOAuthFinancialService
+        (
+            MIICARD_CONSUMER_KEY, MIICARD_CONSUMER_SECRET,
+            accessToken, accessTokenSecret
+        );
+
+### Directory API
+
+Unlike the Claims and Financial APIs, the Directory API is a public lookup service that requires no special OAuth steps to access:
+
+    var apiWrapper = 
+        new miiCard.Consumers.Service.v1.MiiCardDirectoryService();
+    
+    var match = apiWrapper.FindByTwitter("@pauloneilluk");
+
+If you need to hash an identifier you can use the `MiiCardDirectoryService.HashIdentifier(identifier)` static function. This won't normalise the identifier, but will at least lowercase it before hashing - see the [Directory API](http://www.miicard.com/developers/directory-api) documentation for details on normalisation steps.
 
 ### Supported frameworks
 

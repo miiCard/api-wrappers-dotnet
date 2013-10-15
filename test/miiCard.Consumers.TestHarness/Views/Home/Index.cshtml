@@ -1,12 +1,13 @@
-﻿@model miiCard.Consumers.TestHarness.Models.HarnessViewModel
+﻿@using miiCard.Consumers.Service.v1
+@model miiCard.Consumers.TestHarness.Models.HarnessViewModel
 
 <!doctype html>
 <html>
 <head>
     <link rel="Stylesheet" type="text/css" href="/Content/bootstrap.min.css" />
     <link rel="Stylesheet" type="text/css" href="/Content/Site.css" />
-    <script href="/Scripts/jquery-1.8.2.min.js"></script>
-    <script href="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
     <title>.NET miiCard API test harness</title>
     <style type="text/css">
     .page-header { margin-top: 50px; margin-bottom: 10px; }
@@ -15,14 +16,14 @@
 </head>
 
 <body>
-    @using (@Html.BeginForm("Index", "Home")){
-<div class="container">
-    <div class="row">
-        <div class="span12">
-            <h1>.NET miiCard API test harness</h1>
+    @using (@Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "theForm" }))
+    {
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <h1>.NET miiCard API test harness</h1>
+            </div>
         </div>
-    </div>
-    <form method="POST">
         <div class="page-header">
             <h1>OAuth token settings
             <small>Enter manually or <input type="submit" value="Login with miiCard »" name="btnLoginWithMiiCard" class="btn btn-large" /></small>
@@ -70,6 +71,10 @@
 
                 @Html.CheckBoxFor(x => x.ForceClaimsPicker)
                 @Html.LabelFor(x => x.ForceClaimsPicker, new { @style = "display: inline-block;" })
+                <br />
+
+                @Html.CheckBoxFor(x => x.SignupMode)
+                @Html.LabelFor(x => x.SignupMode, new { @style = "display: inline-block;" })
             </div>
         </div>
         <div class="page-header">
@@ -78,7 +83,7 @@
             </h1>
         </div>
         <div class="page-header">
-            <h2>GetClaims
+            <h2><a name="get-claims"></a>GetClaims
             <small>Gets the set of data a user has shared with the application</small>
             </h2>
         </div>
@@ -96,7 +101,7 @@
         </div>
 
         <div class="page-header">
-            <h2>IsUserAssured
+            <h2><a name="is-user-assured"></a>IsUserAssured
             <small>Determines if the user has a current financial validation</small>
             </h2>
         </div>
@@ -114,7 +119,7 @@
         </div>
 
         <div class="page-header">
-            <h2>IsSocialAccountAssured
+            <h2><a name="is-social-account-assured"></a>IsSocialAccountAssured
             <small>Determines if a given social account belongs to the user</small>
             </h2>
         </div>
@@ -137,7 +142,7 @@
         </div>
 
         <div class="page-header">
-            <h2>AssuranceImage
+            <h2><a name="assurance-image"></a>AssuranceImage
             <small>Renders a graphical representation of LOA</small>
             </h2>
         </div>
@@ -157,7 +162,7 @@
         </div>
 
         <div class="page-header">
-            <h2>GetCardImage
+            <h2><a name="card-image"></a>GetCardImage
             <small>Renders a card-image representation of LOA</small>
             </h2>
         </div>
@@ -174,7 +179,8 @@
                 <label class="checkbox" for="CardImageShowPhoneNumber">@Html.CheckBoxFor(x => x.CardImageShowPhoneNumber) Show phone number</label>
 
                 <h4>Result</h4>
-                @if (Model.ShowCardImage){
+                @if (Model.ShowCardImage)
+                {
                 <p><img src="/Home/CardImage?consumerKey=@Model.ConsumerKey&consumerSecret=@Model.ConsumerSecret&accessToken=@Server.UrlEncode(Model.AccessToken)&accessTokenSecret=@Server.UrlEncode(Model.AccessTokenSecret)&snapshotId=@Server.UrlEncode(Model.CardImageSnapshotId ?? "")&format=@Server.UrlEncode(Model.CardImageFormat ?? "")&showEmailAddress=@Model.CardImageShowEmailAddress.ToString()&showPhoneNumber=@Model.CardImageShowPhoneNumber.ToString()" /></p>
                 }
 
@@ -183,7 +189,7 @@
         </div>
         
         <div class="page-header">
-            <h2>GetIdentitySnapshotDetails
+            <h2><a name="get-identity-snapshot-details"></a>GetIdentitySnapshotDetails
             <small>Retrieve metadata about an identity snapshot</small>
             </h2>
         </div>
@@ -203,7 +209,7 @@
         </div>
 
         <div class="page-header">
-            <h2>GetIdentitySnapshot
+            <h2><a name="get-identity-snapshot"></a>GetIdentitySnapshot
             <small>Retrieve a previously created snapshot of a miiCard member's identity</small>
             </h2>
         </div>
@@ -223,7 +229,7 @@
         </div>
 
         <div class="page-header">
-            <h2>GetIdentitySnapshotPdf
+            <h2><a name="get-identity-snapshot-pdf"></a>GetIdentitySnapshotPdf
             <small>Retrieve a PDF of a previously created snapshot of a miiCard member's identity</small>
             </h2>
         </div>
@@ -239,7 +245,7 @@
         </div>
 
         <div class="page-header">
-            <h2>GetAuthenticationDetails
+            <h2><a name="get-authentication-details"></a>GetAuthenticationDetails
             <small>Retrieve details of how a miiCard member authenticated</small>
             </h2>
         </div>
@@ -266,7 +272,7 @@
             </div>
 
             <div class="page-header">
-                <h2>IsRefreshInProgress
+                <h2><a name="is-refresh-in-progress"></a>IsRefreshInProgress
                 <small>Checks if a financial data refresh is ongoing</small>
                 </h2>
             </div>
@@ -283,7 +289,7 @@
             </div>
 
             <div class="page-header">
-                <h2>RefreshFinancialData
+                <h2><a name="refresh-financial-data"></a>RefreshFinancialData
                 <small>Requests financial data be updated</small>
                 </h2>
             </div>
@@ -300,7 +306,7 @@
             </div>
 
             <div class="page-header">
-                <h2>GetFinancialTransactions
+                <h2><a name="get-financial-transactions"></a>GetFinancialTransactions
                 <small>Retrieve financial transactions that the member has shared</small>
                 </h2>
             </div>
@@ -320,8 +326,115 @@
                 </div>
             </div>
         </div>
-    </form>
-</div>
+
+        <div class="directory">
+            <div class="page-header">
+                <h1><a name="directory-search"></a>Directory API
+                <small>Lookup miiCard members by data they've published</small>
+                </h1>
+                <div class="alert alert-info">
+                <strong>Notes</strong>
+                <ul>
+                  <li>The Directory API doesn't require OAuth tokens - just call at will</li>
+                  <li>Only data that's been published by a miiCard member who's elected to be searchable can be used as a search criterion</li>
+                </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <h3>Hash identifier <small><a href="#" data-toggle="sha1-hash" class="toggle">More/less</a></small></h3>
+                    <div id="sha1-hash" style="display: none">
+                        <p>The Directory API can searched by supplying either plaintext or hashed query values for enhanced privacy</p>
+                        <label for="directory_plaintext_identifier">Plain text identifier</label>
+                        <div class="input-prepend" style="display: block;">
+                            <span class="add-on"><i class="icon-random"></i></span>
+                            <input class="span6" type="text" placeholder="Identifier value" name="directory_plaintext_identifier" id="directory_plaintext_identifier" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                  <h3>Search</h3>
+                  <div class="input-prepend" style="display: block;">
+                    <span class="add-on"><i class="icon-search"></i></span>
+                    @Html.TextBoxFor(x => x.DirectoryCriterionValue, new { id = "directory_criterion_value", placeholder = "Search", @class = "span6" })
+                    <select name="DirectoryCriterion" style="margin-left: 0.5em;">
+                        <option value="@(MiiCardDirectoryService.CRITERION_EMAIL)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_EMAIL) ? " selected" : "")>Email address</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_PHONE)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_PHONE) ? " selected" : "")>Phone number</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_TWITTER)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_TWITTER) ? " selected" : "")>Twitter</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_FACEBOOK)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_FACEBOOK) ? " selected" : "")>Facebook</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_LINKEDIN)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_LINKEDIN) ? " selected" : "")>LinkedIn</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_GOOGLE)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_GOOGLE) ? " selected" : "")>Google+</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_MICROSOFT_ID)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_MICROSOFT_ID) ? " selected" : "")>Microsoft ID</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_EBAY)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_EBAY) ? " selected" : "")>eBay</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_VERITAS_VITAE)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_VERITAS_VITAE) ? " selected" : "")>Veritas Vitae</option>
+                        <option value="@(MiiCardDirectoryService.CRITERION_USERNAME)"@((Model.DirectoryCriterion == MiiCardDirectoryService.CRITERION_USERNAME) ? " selected" : "")>Username</option>
+                    </select>
+                  </div>
+                  <label for="DirectoryCriterionValueHashed" class="checkbox">
+                      @Html.CheckBoxFor(x => x.DirectoryCriterionValueHashed, new { id = "directory_criterion_value_hashed" }) Identifier is a hex SHA-1 hash</label>
+                  <button type="submit" name="btn-invoke" value="directory-search" class="btn" style="margin-left: 0.7em;">Search &raquo;</button>
+                  <h4>Result</h4>
+                    @if (!string.IsNullOrWhiteSpace(Model.LastDirectorySearchResult)) {
+                        <p>@Html.Raw(Model.LastDirectorySearchResult)</p>
+                    }
+                    else {
+                        <text>No results</text>;
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
     }
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var sha1timer = null;
+
+            $('button[name="btn-invoke"]').click(function () {
+                $('#theForm').attr('action', '/#' + $(this).attr('value'));
+            });
+
+            $('input, select').keydown(function (e) {
+                if (e.which == 10 || e.which == 13) {
+                    $(this).closest('.row').find('button[type="submit"]').click();
+                    return false;
+                }
+            });
+
+            $('a.toggle').click(function (e) {
+                $('#' + $(this).attr('data-toggle')).toggle();
+                e.preventDefault();
+            });
+
+            $('#directory_criterion_value').keyup(function () {
+                $('#directory_plaintext_identifier').val('');
+            });
+
+            $('#directory_plaintext_identifier').keyup(function () {
+                if (sha1timer) {
+                    window.clearTimeout(sha1timer);
+                    sha1timer = null;
+                }
+
+                if ($(this).val().length) {
+                    elem = $(this);
+
+                    sha1timer =
+                        window.setTimeout(function () {
+                            $.ajax('/home/sha1?identifier=' + encodeURIComponent(elem.val()), {
+                                async: false,
+                                success: function (data) {
+                                    $('#directory_criterion_value').val(data);
+                                    $('#directory_criterion_value_hashed').prop('checked', 'checked');
+                                },
+                                error: function (xhr, status, error) { alert(error); }
+                            });
+                        }, 200);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

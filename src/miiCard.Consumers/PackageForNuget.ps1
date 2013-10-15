@@ -8,7 +8,7 @@ nuget spec
 <# Transform the spec file to replace default values with suitable alternatives #>
 (Get-Content miiCard.Consumers.nuspec) |
 Foreach-Object {
-	$_ -replace "<licenseUrl>.*<\/licenseUrl>", "<licenseUrl>http://www.miicard.com/developers</licenseUrl>" `
+	$_ -replace "<licenseUrl>.*<\/licenseUrl>", "<licenseUrl>https://github.com/miiCard/api-wrappers-dotnet/blob/master/LICENCE.TXT</licenseUrl>" `
 	   -replace "<projectUrl>.*<\/projectUrl>", "<projectUrl>http://www.miicard.com/developers/libraries-components/net-library</projectUrl>" `
 	   -replace "<iconUrl>.*<\/iconUrl>", "<iconUrl>http://www.miicard.com/sites/default/files/dev/nuget_32x32.png</iconUrl>" `
 	   -replace "<releaseNotes>.*<\/releaseNotes>", "<releaseNotes></releaseNotes>" `

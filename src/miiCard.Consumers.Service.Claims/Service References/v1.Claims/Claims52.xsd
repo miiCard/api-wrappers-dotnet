@@ -21,6 +21,7 @@
   <xs:element name="MiiApiResponseOfMiiUserProfile" nillable="true" type="tns:MiiApiResponseOfMiiUserProfile" />
   <xs:complexType name="MiiUserProfile">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Age" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="CardImageUrl" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="EmailAddresses" nillable="true" type="tns:ArrayOfEmailAddress" />
@@ -181,6 +182,20 @@
   <xs:simpleType name="MiiApiErrorCode">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Success" />
+      <xs:enumeration value="UnknownSearchCriterion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NoMatches">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="AccessRevoked">
         <xs:annotation>
           <xs:appinfo>

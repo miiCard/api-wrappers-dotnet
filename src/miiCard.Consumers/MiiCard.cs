@@ -270,6 +270,15 @@ namespace miiCard.Consumers
             set;
         }
 
+        /// <summary>
+        /// Gets or sets whether the user should be directed straight to a miiCard signup form (if you believe
+        /// </summary>
+        public bool SignupMode
+        {
+            get;
+            set;
+        }
+
         private IConsumerTokenManager _tokenManager;
         /// <summary>
         /// Gets or sets the IConsumerTokenManager that should be used to store and subsequently look-up
@@ -490,7 +499,12 @@ namespace miiCard.Consumers
 
             if (this.ForceClaimsPicker)
             {
-                redirectParams[MiiCardConsumer.OAUTH_PARAM_FORCE_CLAIMS_PICKER] = true.ToString();
+                redirectParams[MiiCardConsumer.OAUTH_PARAM_FORCE_CLAIMS_PICKER] = "true";
+            }
+
+            if (this.SignupMode)
+            {
+                redirectParams[MiiCardConsumer.OAUTH_PARAM_SIGNUP_MODE] = "true";
             }
 
             if (redirectParams.Count == 0)

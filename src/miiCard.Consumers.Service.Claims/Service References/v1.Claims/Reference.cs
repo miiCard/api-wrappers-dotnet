@@ -132,6 +132,9 @@ namespace miiCard.Consumers.Service.v1.Claims {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CardImageUrlField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -204,6 +207,19 @@ namespace miiCard.Consumers.Service.v1.Claims {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((this.AgeField.Equals(value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
             }
         }
         
@@ -509,6 +525,12 @@ namespace miiCard.Consumers.Service.v1.Claims {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Success = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UnknownSearchCriterion = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NoMatches = 11,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccessRevoked = 100,

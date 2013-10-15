@@ -338,6 +338,7 @@ namespace miiCard.Consumers.TestHarness.Extensions
             toReturn += RenderFact("Middle name", profile.MiddleName);
             toReturn += RenderFact("Last name", profile.LastName);
             toReturn += RenderFact("Date of birth", profile.DateOfBirth);
+            toReturn += RenderFact("Age", profile.Age);
             toReturn += RenderFact("Identity verified?", profile.IdentityAssured);
             toReturn += RenderFact("Identity last verified?", profile.LastVerified);
             toReturn += RenderFact("Has a public profile?", profile.HasPublicProfile);
