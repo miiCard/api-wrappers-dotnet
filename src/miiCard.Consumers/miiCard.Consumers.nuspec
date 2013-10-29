@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>http://www.miicard.com/developers</licenseUrl>
+    <licenseUrl>https://github.com/miiCard/api-wrappers-dotnet/blob/master/LICENCE.TXT</licenseUrl>
     <projectUrl>http://www.miicard.com/developers/libraries-components/net-library</projectUrl>
     <iconUrl>http://www.miicard.com/sites/default/files/dev/nuget_32x32.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
