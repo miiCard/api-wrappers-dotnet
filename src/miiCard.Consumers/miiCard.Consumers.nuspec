@@ -17,6 +17,7 @@
     <tags>miiCard identity assurance security miicard.com</tags>
     <dependencies>
       <dependency id="DotNetOpenAuth.OAuth.Consumer" version="4.0.2.12119" />
+      <dependency id="Newtonsoft.Json" version="5.0.8" />
     </dependencies>
   </metadata>
 </package>
