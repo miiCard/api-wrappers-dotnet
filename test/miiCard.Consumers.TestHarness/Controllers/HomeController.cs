@@ -25,7 +25,7 @@ namespace miiCard.Consumers.TestHarness.Controllers
             // Force a session cookie down on the initial view, otherwise
             // we'll not create it correctly when doing a login
             Session["Running"] = true;
-         
+
             return View(new HarnessViewModel());
         }
 
@@ -67,7 +67,7 @@ namespace miiCard.Consumers.TestHarness.Controllers
                 {
                     var apiWrapper = new MiiCardOAuthClaimsService(model.ConsumerKey, model.ConsumerSecret, model.AccessToken, model.AccessTokenSecret);
                     var financialWrapper = new MiiCardOAuthFinancialService(model.ConsumerKey, model.ConsumerSecret, model.AccessToken, model.AccessTokenSecret);
-                    
+
                     switch (this.Request.Params["btn-invoke"])
                     {
                         case "get-claims":
@@ -104,8 +104,8 @@ namespace miiCard.Consumers.TestHarness.Controllers
                             if (!string.IsNullOrWhiteSpace(model.SnapshotPdfId))
                             {
                                 return new FileStreamResult(apiWrapper.GetIdentitySnapshotPdf(model.SnapshotPdfId), "application/pdf")
-                                { 
-                                    FileDownloadName = model.SnapshotPdfId 
+                                {
+                                    FileDownloadName = model.SnapshotPdfId
                                 };
                             }
                             break;
@@ -115,17 +115,25 @@ namespace miiCard.Consumers.TestHarness.Controllers
                         case "refresh-financial-data":
                             model.LastRefreshFinancialDataResult = financialWrapper.RefreshFinancialData().Prettify();
                             break;
+                        case "refresh-financial-data-credit-cards":
+                            model.LastRefreshFinancialDataCreditCardsResult = financialWrapper.RefreshFinancialDataCreditCards().Prettify();
+                            break;
                         case "is-refresh-in-progress":
                             model.LastIsRefreshInProgressResult = financialWrapper.IsRefreshInProgress().Prettify();
                             break;
-                        case "get-financial-transactions": 
-                            var configuration = new PrettifyConfiguration() { ModestyLimit = model.FinancialDataModestyLimit };
-                            model.LastGetFinancialTransactionsResult = financialWrapper.GetFinancialTransactions().Prettify(configuration);
+                        case "is-refresh-in-progress-credit-cards":
+                            model.LastIsRefreshInProgressCreditCardsResult = financialWrapper.IsRefreshInProgressCreditCards().Prettify();
+                            break;
+                        case "get-financial-transactions":
+                            model.LastGetFinancialTransactionsResult = financialWrapper.GetFinancialTransactions().Prettify(new PrettifyConfiguration { ModestyLimit = model.FinancialDataModestyLimit });
+                            break;
+                        case "get-financial-transactions-credit-cards":
+                            model.LastGetFinancialTransactionsCreditCardsResult = financialWrapper.GetFinancialTransactionsCreditCards().Prettify(new PrettifyConfiguration { ModestyLimit = model.FinancialDataCreditCardsModestyLimit });
                             break;
                     }
                 }
             }
-            
+
             return View(model);
         }
 

@@ -37,6 +37,13 @@ namespace miiCard.Consumers.Service.v1
             return new MiiApiResponse<bool>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
 
+        public MiiApiResponse<bool> IsRefreshInProgressCreditCards()
+        {
+            var response = this.GetAuthenticatedServiceMethodResult(x => x.IsRefreshInProgressCreditCards());
+
+            return new MiiApiResponse<bool>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
+        }
+
         public MiiApiResponse<FinancialRefreshStatus> RefreshFinancialData()
         {
             var response = this.GetAuthenticatedServiceMethodResult(x => x.RefreshFinancialData());
@@ -44,9 +51,23 @@ namespace miiCard.Consumers.Service.v1
             return new MiiApiResponse<FinancialRefreshStatus>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
 
+        public MiiApiResponse<FinancialRefreshStatus> RefreshFinancialDataCreditCards()
+        {
+            var response = this.GetAuthenticatedServiceMethodResult(x => x.RefreshFinancialDataCreditCards());
+
+            return new MiiApiResponse<FinancialRefreshStatus>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
+        }
+
         public MiiApiResponse<MiiFinancialData> GetFinancialTransactions()
         {
             var response = this.GetAuthenticatedServiceMethodResult(x => x.GetFinancialTransactions());
+
+            return new MiiApiResponse<MiiFinancialData>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
+        }
+
+        public MiiApiResponse<MiiFinancialData> GetFinancialTransactionsCreditCards()
+        {
+            var response = this.GetAuthenticatedServiceMethodResult(x => x.GetFinancialTransactionsCreditCards());
 
             return new MiiApiResponse<MiiFinancialData>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
@@ -66,7 +87,7 @@ namespace miiCard.Consumers.Service.v1
                 }
 
                 client.Endpoint.Contract = ContractDescription.GetContract(typeof(IFinancial));
-                
+
                 using (OperationContextScope scope = new OperationContextScope(client.InnerChannel))
                 {
                     OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = this.GetOAuthHeader(client.Endpoint.Address.Uri, true);

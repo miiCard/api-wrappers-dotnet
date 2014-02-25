@@ -39,11 +39,23 @@
   <wsdl:message name="IFinancial_IsRefreshInProgress_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsRefreshInProgressResponse" />
   </wsdl:message>
+  <wsdl:message name="IFinancial_IsRefreshInProgressCreditCards_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsRefreshInProgressCreditCards" />
+  </wsdl:message>
+  <wsdl:message name="IFinancial_IsRefreshInProgressCreditCards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsRefreshInProgressCreditCardsResponse" />
+  </wsdl:message>
   <wsdl:message name="IFinancial_RefreshFinancialData_InputMessage">
     <wsdl:part name="parameters" element="tns:RefreshFinancialData" />
   </wsdl:message>
   <wsdl:message name="IFinancial_RefreshFinancialData_OutputMessage">
     <wsdl:part name="parameters" element="tns:RefreshFinancialDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFinancial_RefreshFinancialDataCreditCards_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshFinancialDataCreditCards" />
+  </wsdl:message>
+  <wsdl:message name="IFinancial_RefreshFinancialDataCreditCards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshFinancialDataCreditCardsResponse" />
   </wsdl:message>
   <wsdl:message name="IFinancial_GetFinancialTransactions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetFinancialTransactions" />
@@ -51,18 +63,36 @@
   <wsdl:message name="IFinancial_GetFinancialTransactions_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetFinancialTransactionsResponse" />
   </wsdl:message>
+  <wsdl:message name="IFinancial_GetFinancialTransactionsCreditCards_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinancialTransactionsCreditCards" />
+  </wsdl:message>
+  <wsdl:message name="IFinancial_GetFinancialTransactionsCreditCards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinancialTransactionsCreditCardsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFinancial">
     <wsdl:operation name="IsRefreshInProgress">
       <wsdl:input wsaw:Action="http://tempuri.org/IFinancial/IsRefreshInProgress" message="tns:IFinancial_IsRefreshInProgress_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFinancial/IsRefreshInProgressResponse" message="tns:IFinancial_IsRefreshInProgress_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IsRefreshInProgressCreditCards">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinancial/IsRefreshInProgressCreditCards" message="tns:IFinancial_IsRefreshInProgressCreditCards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinancial/IsRefreshInProgressCreditCardsResponse" message="tns:IFinancial_IsRefreshInProgressCreditCards_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RefreshFinancialData">
       <wsdl:input wsaw:Action="http://tempuri.org/IFinancial/RefreshFinancialData" message="tns:IFinancial_RefreshFinancialData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFinancial/RefreshFinancialDataResponse" message="tns:IFinancial_RefreshFinancialData_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RefreshFinancialDataCreditCards">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinancial/RefreshFinancialDataCreditCards" message="tns:IFinancial_RefreshFinancialDataCreditCards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinancial/RefreshFinancialDataCreditCardsResponse" message="tns:IFinancial_RefreshFinancialDataCreditCards_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetFinancialTransactions">
       <wsdl:input wsaw:Action="http://tempuri.org/IFinancial/GetFinancialTransactions" message="tns:IFinancial_GetFinancialTransactions_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFinancial/GetFinancialTransactionsResponse" message="tns:IFinancial_GetFinancialTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialTransactionsCreditCards">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFinancial/GetFinancialTransactionsCreditCards" message="tns:IFinancial_GetFinancialTransactionsCreditCards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFinancial/GetFinancialTransactionsCreditCardsResponse" message="tns:IFinancial_GetFinancialTransactionsCreditCards_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFinancial" type="tns:IFinancial">
@@ -70,6 +100,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="IsRefreshInProgress">
       <soap:operation soapAction="http://tempuri.org/IFinancial/IsRefreshInProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsRefreshInProgressCreditCards">
+      <soap:operation soapAction="http://tempuri.org/IFinancial/IsRefreshInProgressCreditCards" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -86,8 +125,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RefreshFinancialDataCreditCards">
+      <soap:operation soapAction="http://tempuri.org/IFinancial/RefreshFinancialDataCreditCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetFinancialTransactions">
       <soap:operation soapAction="http://tempuri.org/IFinancial/GetFinancialTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialTransactionsCreditCards">
+      <soap:operation soapAction="http://tempuri.org/IFinancial/GetFinancialTransactionsCreditCards" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

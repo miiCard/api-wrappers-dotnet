@@ -29,6 +29,7 @@
   <xs:complexType name="FinancialProvider">
     <xs:sequence>
       <xs:element minOccurs="0" name="FinancialAccounts" nillable="true" type="tns:ArrayOfFinancialAccount" />
+      <xs:element minOccurs="0" name="FinancialCreditCards" nillable="true" type="tns:ArrayOfFinancialCreditCard" />
       <xs:element minOccurs="0" name="ProviderName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -74,4 +75,29 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FinancialTransaction" nillable="true" type="tns:FinancialTransaction" />
+  <xs:complexType name="ArrayOfFinancialCreditCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FinancialCreditCard" nillable="true" type="tns:FinancialCreditCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFinancialCreditCard" nillable="true" type="tns:ArrayOfFinancialCreditCard" />
+  <xs:complexType name="FinancialCreditCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditLimit" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CreditsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditsSum" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CurrencyIso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DebitsCount" type="xs:int" />
+      <xs:element minOccurs="0" name="DebitsSum" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FromDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Holder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastUpdatedUtc" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RunningBalance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Transactions" nillable="true" type="tns:ArrayOfFinancialTransaction" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinancialCreditCard" nillable="true" type="tns:FinancialCreditCard" />
 </xs:schema>

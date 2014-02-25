@@ -35,9 +35,12 @@ namespace miiCard.Consumers.TestHarness.Models
         public string LastGetIdentitySnapshotDetailsResult { get; set; }
         public string LastGetIdentitySnapshotResult { get; set; }
         public string LastGetFinancialTransactionsResult { get; set; }
+        public string LastGetFinancialTransactionsCreditCardsResult { get; set; }
         public string LastGetAuthenticationDetailsResult { get; set; }
         public string LastRefreshFinancialDataResult { get; set; }
+        public string LastRefreshFinancialDataCreditCardsResult { get; set; }
         public string LastIsRefreshInProgressResult { get; set; }
+        public string LastIsRefreshInProgressCreditCardsResult { get; set; }
         public string LastDirectorySearchResult { get; set; }
 
         public bool ShowAssuranceImage { get; set; }
@@ -62,6 +65,8 @@ namespace miiCard.Consumers.TestHarness.Models
 
         [Display(Name = "Hide values absolutely greater than this for modesty (blank to disable)")]
         public decimal? FinancialDataModestyLimit { get; set; }
+        [Display(Name = "Hide values absolutely greater than this for modesty (blank to disable)")]
+        public decimal? FinancialDataCreditCardsModestyLimit { get; set; }
 
         public string DirectoryCriterion { get; set; }
         public string DirectoryCriterionValue { get; set; }
@@ -70,6 +75,7 @@ namespace miiCard.Consumers.TestHarness.Models
         public HarnessViewModel()
         {
             this.FinancialDataModestyLimit = 100m;
+            this.FinancialDataCreditCardsModestyLimit = 100m;
         }
     }
 }

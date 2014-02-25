@@ -13,7 +13,7 @@
     <description>$description$</description>
     <releaseNotes>
     </releaseNotes>
-    <copyright>Copyright 2013</copyright>
+    <copyright>Copyright 2014</copyright>
     <tags>miiCard identity assurance security miicard.com</tags>
     <dependencies>
       <dependency id="DotNetOpenAuth.OAuth.Consumer" version="4.0.2.12119" />

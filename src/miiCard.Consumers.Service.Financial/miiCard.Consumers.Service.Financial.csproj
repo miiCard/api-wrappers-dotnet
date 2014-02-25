@@ -95,9 +95,6 @@
     <WCFMetadataStorage Include="Service References\v1.Financial\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\v1.Financial\Financial.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\v1.Financial\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>

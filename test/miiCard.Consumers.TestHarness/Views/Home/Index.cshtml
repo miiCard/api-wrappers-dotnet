@@ -289,6 +289,23 @@
             </div>
 
             <div class="page-header">
+                <h2><a name="is-refresh-in-progress-credit-cards"></a>IsRefreshInProgressCreditCards
+                <small>Checks if a financial credit card data refresh is ongoing</small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <h4>Result</h4>
+                    @if (!string.IsNullOrWhiteSpace(Model.LastIsRefreshInProgressCreditCardsResult))
+                    {
+                        <p>@Html.Raw(Model.LastIsRefreshInProgressCreditCardsResult)</p>
+                    }
+
+                    <button type="submit" name="btn-invoke" value="is-refresh-in-progress-credit-cards" class="btn btn-large">Invoke method &raquo;</button>
+                </div>
+            </div>
+
+            <div class="page-header">
                 <h2><a name="refresh-financial-data"></a>RefreshFinancialData
                 <small>Requests financial data be updated</small>
                 </h2>
@@ -304,6 +321,24 @@
                     <button type="submit" name="btn-invoke" value="refresh-financial-data" class="btn btn-large">Invoke method &raquo;</button>
                 </div>
             </div>
+            </div>
+
+            <div class="page-header">
+                <h2><a name="refresh-financial-data-credit-cards"></a>RefreshFinancialDataCreditCards
+                <small>Requests financial credit card data be updated</small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <h4>Result</h4>
+                    @if (!string.IsNullOrWhiteSpace(Model.LastRefreshFinancialDataCreditCardsResult))
+                    {
+                        <p>@Html.Raw(Model.LastRefreshFinancialDataCreditCardsResult)</p>
+                    }
+
+                    <button type="submit" name="btn-invoke" value="refresh-financial-data-credit-cards" class="btn btn-large">Invoke method &raquo;</button>
+                </div>
+            </div>
 
             <div class="page-header">
                 <h2><a name="get-financial-transactions"></a>GetFinancialTransactions
@@ -313,7 +348,7 @@
             <div class="row">
                 <div class="span12">
                     <h4>Result</h4>
-                
+
                     <label for="financialDataModestyLimit">Hide values absolutely greater than this for modesty (blank to disable)</label>
                     @Html.TextBoxFor(x => x.FinancialDataModestyLimit) <br />
 
@@ -325,6 +360,26 @@
                     <button type="submit" name="btn-invoke" value="get-financial-transactions" class="btn btn-large">Invoke method &raquo;</button>
                 </div>
             </div>
+
+            <div class="page-header">
+                <h2><a name="get-financial-transactions-credit-cards"></a>GetFinancialTransactionsCreditCards
+                <small>Retrieve financial credit card transactions that the member has shared</small>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <h4>Result</h4>
+
+                    <label for="financialDataCreditCardsModestyLimit">Hide values absolutely greater than this for modesty (blank to disable)</label>
+                    @Html.TextBoxFor(x => x.FinancialDataCreditCardsModestyLimit) <br />
+
+                    @if (!string.IsNullOrWhiteSpace(Model.LastGetFinancialTransactionsCreditCardsResult))
+                    {
+                        <p>@Html.Raw(Model.LastGetFinancialTransactionsCreditCardsResult)</p>
+                    }
+
+                    <button type="submit" name="btn-invoke" value="get-financial-transactions-credit-cards" class="btn btn-large">Invoke method &raquo;</button>
+                </div>
         </div>
 
         <div class="directory">

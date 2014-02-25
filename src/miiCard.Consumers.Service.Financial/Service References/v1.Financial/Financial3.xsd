@@ -22,6 +22,20 @@
   <xs:simpleType name="MiiApiErrorCode">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Success" />
+      <xs:enumeration value="UnknownSearchCriterion">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NoMatches">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="AccessRevoked">
         <xs:annotation>
           <xs:appinfo>

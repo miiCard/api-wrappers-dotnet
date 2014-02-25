@@ -30,7 +30,7 @@ namespace miiCard.Consumers.TestHarness.Extensions
 
             return toReturn;
         }
-        
+
         public static string Prettify<T>(this MiiApiResponse<T> response, PrettifyConfiguration configuration = null)
         {
             if (configuration == null)
@@ -39,8 +39,8 @@ namespace miiCard.Consumers.TestHarness.Extensions
             }
 
             string toReturn = "<div class='response'>";
-        
-		    toReturn += RenderFact("Status", response.Status);
+
+            toReturn += RenderFact("Status", response.Status);
             toReturn += RenderFact("Error code", response.ErrorCode);
             toReturn += RenderFact("Error message", response.ErrorMessage);
             toReturn += RenderFact("Is a test user?", response.IsTestUser);
@@ -82,12 +82,12 @@ namespace miiCard.Consumers.TestHarness.Extensions
 
                 toReturn += renderer(response.Data, configuration);
             }
-        
+
             toReturn += "</div>";
 
             return toReturn;
         }
-        
+
         private static string RenderFact(string key, object value)
         {
             string factValueRender = "[Empty]";
@@ -104,36 +104,36 @@ namespace miiCard.Consumers.TestHarness.Extensions
                 + "</span></div>";
         }
 
-        private static string RenderIdentity(Identity identity) 
+        private static string RenderIdentity(Identity identity)
         {
-    	    string toReturn = "<div class='fact'>";
-        
+            string toReturn = "<div class='fact'>";
+
             toReturn += RenderFact("Source", identity.Source);
             toReturn += RenderFact("User ID", identity.UserId);
             toReturn += RenderFact("Profile URL", identity.ProfileUrl);
             toReturn += RenderFact("Verified?", identity.Verified);
             toReturn += "</div>";
-        
+
             return toReturn;
         }
 
-        private static string RenderEmail(EmailAddress email) 
-        {        
-    	    string toReturn = "<div class='fact'>";
-        
+        private static string RenderEmail(EmailAddress email)
+        {
+            string toReturn = "<div class='fact'>";
+
             toReturn += RenderFact("Display name", email.DisplayName);
             toReturn += RenderFact("Address", email.Address);
             toReturn += RenderFact("Is primary?", email.IsPrimary);
             toReturn += RenderFact("Verified?", email.Verified);
             toReturn += "</div>";
-        
+
             return toReturn;
         }
 
-        private static string RenderAddress(PostalAddress address) 
+        private static string RenderAddress(PostalAddress address)
         {
             string toReturn = "<div class='fact'>";
-        
+
             toReturn += RenderFact("House", address.House);
             toReturn += RenderFact("Line1", address.Line1);
             toReturn += RenderFact("Line2", address.Line2);
@@ -142,10 +142,10 @@ namespace miiCard.Consumers.TestHarness.Extensions
             toReturn += RenderFact("Code", address.Code);
             toReturn += RenderFact("Country", address.Country);
             toReturn += RenderFact("Is primary?", address.IsPrimary);
-            toReturn += RenderFact("Verified?", address.Verified);        
+            toReturn += RenderFact("Verified?", address.Verified);
             toReturn += "</div>";
-        
-            return toReturn;   
+
+            return toReturn;
         }
 
         private static string RenderPhone(PhoneNumber number)
@@ -225,15 +225,26 @@ namespace miiCard.Consumers.TestHarness.Extensions
 
             toReturn += RenderFact("Name", financialProvider.ProviderName);
 
-            toReturn += RenderFactHeading("Financial Accounts");
-
             int ct = 0;
             if (financialProvider.FinancialAccounts != null)
             {
+                toReturn += RenderFactHeading("Financial Accounts");
+
                 foreach (var account in financialProvider.FinancialAccounts)
                 {
                     toReturn += "<div class='fact'><h4>[" + ct++ + "]</h4>";
                     toReturn += RenderFinancialAccount(account, configuration);
+                    toReturn += "</div>";
+                }
+            }
+            else if (financialProvider.FinancialCreditCards != null)
+            {
+                toReturn += RenderFactHeading("Financial Accounts Credit Cards");
+
+                foreach (var accountCreditCard in financialProvider.FinancialCreditCards)
+                {
+                    toReturn += "<div class='fact'><h4>[" + ct++ + "]</h4>";
+                    toReturn += RenderFinancialAccountCreditCard(accountCreditCard, configuration);
                     toReturn += "</div>";
                 }
             }
@@ -287,14 +298,46 @@ namespace miiCard.Consumers.TestHarness.Extensions
             {
                 toReturn += string.Format("<tr><td>{0}</td><td title='ID: {4}'>{1}</td><td class='r'>{2}</td><td class='r d'>{3}</td></tr>", transaction.Date.ToString("yyyy-MM-dd HH:mm"), transaction.Description ?? "[None]", GetModestyFilteredAmount(transaction.AmountCredited, configuration), GetModestyFilteredAmount(transaction.AmountDebited, configuration), transaction.ID);
             }
-            
+
             toReturn += "</tbody></table>";
 
             toReturn += "</div>";
             return toReturn;
         }
-    
-        private static string RenderFactHeading(string heading) 
+
+        private static string RenderFinancialAccountCreditCard(FinancialCreditCard creditCard, PrettifyConfiguration configuration)
+        {
+            string toReturn = "<div class='fact'>";
+
+            toReturn += RenderFact("Holder", creditCard.Holder);
+            toReturn += RenderFact("Account number", creditCard.AccountNumber);
+            toReturn += RenderFact("Account name", creditCard.AccountName);
+            toReturn += RenderFact("Type", creditCard.Type);
+            toReturn += RenderFact("Last updated", creditCard.LastUpdatedUtc);
+            toReturn += RenderFact("Currency", creditCard.CurrencyIso);
+            toReturn += RenderFact("Credit limit", GetModestyFilteredAmount(creditCard.CreditLimit, configuration));
+            toReturn += RenderFact("Running balance", GetModestyFilteredAmount(creditCard.RunningBalance, configuration));
+            toReturn += RenderFact("Credits (count)", creditCard.CreditsCount);
+            toReturn += RenderFact("Credits (sum)", GetModestyFilteredAmount(creditCard.CreditsSum, configuration));
+            toReturn += RenderFact("Debits (count)", creditCard.DebitsCount);
+            toReturn += RenderFact("Debits (sum)", GetModestyFilteredAmount(creditCard.DebitsSum, configuration));
+
+            toReturn += RenderFactHeading("Transactions");
+
+            toReturn += "<table class='table table-striped table-condensed table-hover'><thead><tr><th>Date</th><th>Description</th><th class='r'>Credit</th><th class='r'>Debit</th></tr></thead><tbody>";
+
+            foreach (var transaction in creditCard.Transactions)
+            {
+                toReturn += string.Format("<tr><td>{0}</td><td title='ID: {4}'>{1}</td><td class='r'>{2}</td><td class='r d'>{3}</td></tr>", transaction.Date.ToString("yyyy-MM-dd HH:mm"), transaction.Description ?? "[None]", GetModestyFilteredAmount(transaction.AmountCredited, configuration), GetModestyFilteredAmount(transaction.AmountDebited, configuration), transaction.ID);
+            }
+
+            toReturn += "</tbody></table>";
+
+            toReturn += "</div>";
+            return toReturn;
+        }
+
+        private static string RenderFactHeading(string heading)
         {
             return "<h3>" + heading + "</h3>";
         }
@@ -328,11 +371,11 @@ namespace miiCard.Consumers.TestHarness.Extensions
         }
 
         public static string RenderUserProfile(MiiUserProfile profile)
-        {        
-    	    string toReturn = "<div class='fact'>";
-        
-    	    toReturn += "<h2>User profile</h2>";
-    	    toReturn += RenderFact("Username", profile.Username);
+        {
+            string toReturn = "<div class='fact'>";
+
+            toReturn += "<h2>User profile</h2>";
+            toReturn += RenderFact("Username", profile.Username);
             toReturn += RenderFact("Salutation", profile.Salutation);
             toReturn += RenderFact("First name", profile.FirstName);
             toReturn += RenderFact("Middle name", profile.MiddleName);
@@ -349,51 +392,51 @@ namespace miiCard.Consumers.TestHarness.Extensions
             toReturn += RenderFact("Profile short URL", profile.ProfileShortUrl);
             toReturn += RenderFact("Card image URL", profile.CardImageUrl);
             toReturn += RenderFactHeading("Postal addresses");
-        
+
             int ct = 0;
-        
-            if (profile.PostalAddresses != null) 
-            {            
-        	    foreach (var address in profile.PostalAddresses) 
-                {        		
-        		    toReturn += "<div class='fact'><h4>[" + ct++ + "]</h4>";
+
+            if (profile.PostalAddresses != null)
+            {
+                foreach (var address in profile.PostalAddresses)
+                {
+                    toReturn += "<div class='fact'><h4>[" + ct++ + "]</h4>";
                     toReturn += RenderAddress(address);
                     toReturn += "</div>";
                 }
             }
-        
+
             toReturn += RenderFactHeading("Phone numbers");
             ct = 0;
-        
-            if (profile.PhoneNumbers != null) 
-            {            
-        	    foreach (var number in profile.PhoneNumbers) 
+
+            if (profile.PhoneNumbers != null)
+            {
+                foreach (var number in profile.PhoneNumbers)
                 {
                     toReturn += "<div class='fact'><h4>[" + ct++ + "]</h4>";
                     toReturn += RenderPhone(number);
                     toReturn += "</div>";
                 }
             }
-        
+
             toReturn += RenderFactHeading("Email addresses");
             ct = 0;
-        
-            if (profile.EmailAddresses != null) 
-            {            
-        	    foreach (var address in profile.EmailAddresses) 
+
+            if (profile.EmailAddresses != null)
+            {
+                foreach (var address in profile.EmailAddresses)
                 {
                     toReturn += "<div class='fact'><h4>[" + ct++ + "]</h4>";
                     toReturn += RenderEmail(address);
                     toReturn += "</div>";
                 }
             }
-        
+
             toReturn += RenderFactHeading("Internet identities");
             ct = 0;
-        
-            if (profile.Identities != null) 
-            {            
-        	    foreach (Identity identity in profile.Identities) 
+
+            if (profile.Identities != null)
+            {
+                foreach (Identity identity in profile.Identities)
                 {
                     toReturn += "<div class='fact'><h4>[" + ct++ + "]</h4>";
                     toReturn += RenderIdentity(identity);
@@ -413,16 +456,17 @@ namespace miiCard.Consumers.TestHarness.Extensions
                     toReturn += "</div>";
                 }
             }
-        
-            if (profile.PublicProfile != null) {
-        	
-        	    toReturn += "<div class='fact'>";
+
+            if (profile.PublicProfile != null)
+            {
+
+                toReturn += "<div class='fact'>";
                 toReturn += RenderUserProfile(profile.PublicProfile);
                 toReturn += "</div>";
             }
-        
+
             toReturn += "</div>";
-        
+
             return toReturn;
         }
 

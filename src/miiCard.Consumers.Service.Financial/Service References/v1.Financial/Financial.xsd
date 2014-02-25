@@ -13,6 +13,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IsRefreshInProgressCreditCards">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsRefreshInProgressCreditCardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="IsRefreshInProgressCreditCardsResult" nillable="true" type="q2:MiiApiResponseOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RefreshFinancialData">
     <xs:complexType>
       <xs:sequence />
@@ -21,7 +33,19 @@
   <xs:element name="RefreshFinancialDataResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="RefreshFinancialDataResult" nillable="true" type="q2:MiiApiResponseOfFinancialRefreshStatus" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="RefreshFinancialDataResult" nillable="true" type="q3:MiiApiResponseOfFinancialRefreshStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshFinancialDataCreditCards">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshFinancialDataCreditCardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="RefreshFinancialDataCreditCardsResult" nillable="true" type="q4:MiiApiResponseOfFinancialRefreshStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -33,7 +57,19 @@
   <xs:element name="GetFinancialTransactionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="GetFinancialTransactionsResult" nillable="true" type="q3:MiiApiResponseOfMiiFinancialData" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="GetFinancialTransactionsResult" nillable="true" type="q5:MiiApiResponseOfMiiFinancialData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinancialTransactionsCreditCards">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinancialTransactionsCreditCardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="GetFinancialTransactionsCreditCardsResult" nillable="true" type="q6:MiiApiResponseOfMiiFinancialData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
