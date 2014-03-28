@@ -252,15 +252,6 @@ namespace miiCard.Consumers
         }
 
         /// <summary>
-        /// Gets or sets the miiCard referrer code that should be used when making requests.
-        /// </summary>
-        public string ReferrerCode
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
         /// Gets or sets whether the user should be forced to re-select the information they wish to share with your
         /// application even if they already have a valid relationship with you.
         /// </summary>
@@ -491,11 +482,6 @@ namespace miiCard.Consumers
             var requestParams = new Dictionary<string, string> { { "scope", scope }, };
 
             var redirectParams = new Dictionary<string, string>();
-
-            if (!string.IsNullOrWhiteSpace(this.ReferrerCode))
-            {
-                redirectParams[MiiCardConsumer.OAUTH_PARAM_REFERRER_CODE] = this.ReferrerCode;
-            }
 
             if (this.ForceClaimsPicker)
             {

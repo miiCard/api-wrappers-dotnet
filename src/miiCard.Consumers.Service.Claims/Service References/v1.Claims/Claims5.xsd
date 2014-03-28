@@ -125,4 +125,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IsCreditBureauRefreshInProgress">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsCreditBureauRefreshInProgressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="IsCreditBureauRefreshInProgressResult" nillable="true" type="q11:MiiApiResponseOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshCreditBureauData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefreshCreditBureauDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" minOccurs="0" name="RefreshCreditBureauDataResult" nillable="true" type="q12:MiiApiResponseOfCreditBureauRefreshStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

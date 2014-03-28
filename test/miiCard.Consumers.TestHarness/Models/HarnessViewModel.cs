@@ -9,19 +9,18 @@ namespace miiCard.Consumers.TestHarness.Models
     public class HarnessViewModel
     {
         [Required]
-        [Display(Name="Consumer key")]
+        [Display(Name = "Consumer key")]
         public string ConsumerKey { get; set; }
+
         [Required]
         [Display(Name = "Consumer secret")]
         public string ConsumerSecret { get; set; }
 
         [Display(Name = "Access token")]
         public string AccessToken { get; set; }
+
         [Display(Name = "Access token secret")]
         public string AccessTokenSecret { get; set; }
-
-        [Display(Name = "Referrer code (if any)")]
-        public string ReferrerCode { get; set; }
 
         [Display(Name = "Force claims picker")]
         public bool ForceClaimsPicker { get; set; }
@@ -34,6 +33,8 @@ namespace miiCard.Consumers.TestHarness.Models
         public string LastIsSocialAccountAssuredResult { get; set; }
         public string LastGetIdentitySnapshotDetailsResult { get; set; }
         public string LastGetIdentitySnapshotResult { get; set; }
+        public string LastRefreshCreditBureauDataResult { get; set; }
+        public string LastIsRefreshInProgressCreditBureauResult { get; set; }
         public string LastGetFinancialTransactionsResult { get; set; }
         public string LastGetFinancialTransactionsCreditCardsResult { get; set; }
         public string LastGetAuthenticationDetailsResult { get; set; }
@@ -59,7 +60,7 @@ namespace miiCard.Consumers.TestHarness.Models
         public string SnapshotId { get; set; }
         public string SnapshotPdfId { get; set; }
         public string AuthenticationDetailsSnapshotId { get; set; }
-        
+
         public bool ShowOAuthDetailsRequiredError { get; set; }
         public string OAuthProcessErrorText { get; set; }
 

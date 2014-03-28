@@ -138,6 +138,9 @@ namespace miiCard.Consumers.Service.v1.Claims {
         private string CardImageUrlField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.CreditBureauVerification CreditBureauVerificationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DateOfBirthField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -232,6 +235,19 @@ namespace miiCard.Consumers.Service.v1.Claims {
                 if ((object.ReferenceEquals(this.CardImageUrlField, value) != true)) {
                     this.CardImageUrlField = value;
                     this.RaisePropertyChanged("CardImageUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.CreditBureauVerification CreditBureauVerification {
+            get {
+                return this.CreditBureauVerificationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreditBureauVerificationField, value) != true)) {
+                    this.CreditBureauVerificationField = value;
+                    this.RaisePropertyChanged("CreditBureauVerification");
                 }
             }
         }
@@ -551,6 +567,9 @@ namespace miiCard.Consumers.Service.v1.Claims {
         InvalidSnapshotId = 1020,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
+        CreditBureauUpdatesUnavailable = 1030,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
         Blacklisted = 2000,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -575,6 +594,67 @@ namespace miiCard.Consumers.Service.v1.Claims {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 2,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CreditBureauVerification", Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api")]
+    [System.SerializableAttribute()]
+    public partial class CreditBureauVerification : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime LastVerifiedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime LastVerified {
+            get {
+                return this.LastVerifiedField;
+            }
+            set {
+                if ((this.LastVerifiedField.Equals(value) != true)) {
+                    this.LastVerifiedField = value;
+                    this.RaisePropertyChanged("LastVerified");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2028,6 +2108,174 @@ namespace miiCard.Consumers.Service.v1.Claims {
         Hard = 2,
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MiiApiResponseOfCreditBureauRefreshStatus", Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api")]
+    [System.SerializableAttribute()]
+    public partial class MiiApiResponseOfCreditBureauRefreshStatus : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.CreditBureauRefreshStatus DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.MiiApiErrorCode ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsTestUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.CreditBureauRefreshStatus Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.MiiApiErrorCode ErrorCode {
+            get {
+                return this.ErrorCodeField;
+            }
+            set {
+                if ((this.ErrorCodeField.Equals(value) != true)) {
+                    this.ErrorCodeField = value;
+                    this.RaisePropertyChanged("ErrorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsTestUser {
+            get {
+                return this.IsTestUserField;
+            }
+            set {
+                if ((this.IsTestUserField.Equals(value) != true)) {
+                    this.IsTestUserField = value;
+                    this.RaisePropertyChanged("IsTestUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.MiiApiCallStatus Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CreditBureauRefreshStatus", Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api")]
+    [System.SerializableAttribute()]
+    public partial class CreditBureauRefreshStatus : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private miiCard.Consumers.Service.v1.Claims.CreditBureauRefreshStatus.RefreshStatus StateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public miiCard.Consumers.Service.v1.Claims.CreditBureauRefreshStatus.RefreshStatus State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((this.StateField.Equals(value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="CreditBureauRefreshStatus.RefreshStatus", Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api")]
+        public enum RefreshStatus : int {
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            Unknown = 0,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            DataAvailable = 1,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            InProgress = 2,
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="v1.Claims.IClaims")]
     public interface IClaims {
@@ -2058,6 +2306,12 @@ namespace miiCard.Consumers.Service.v1.Claims {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClaims/GetAuthenticationDetails", ReplyAction="http://tempuri.org/IClaims/GetAuthenticationDetailsResponse")]
         miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfAuthenticationDetails GetAuthenticationDetails(string snapshotId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClaims/IsCreditBureauRefreshInProgress", ReplyAction="http://tempuri.org/IClaims/IsCreditBureauRefreshInProgressResponse")]
+        miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfboolean IsCreditBureauRefreshInProgress();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClaims/RefreshCreditBureauData", ReplyAction="http://tempuri.org/IClaims/RefreshCreditBureauDataResponse")]
+        miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfCreditBureauRefreshStatus RefreshCreditBureauData();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2121,6 +2375,14 @@ namespace miiCard.Consumers.Service.v1.Claims {
         
         public miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfAuthenticationDetails GetAuthenticationDetails(string snapshotId) {
             return base.Channel.GetAuthenticationDetails(snapshotId);
+        }
+        
+        public miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfboolean IsCreditBureauRefreshInProgress() {
+            return base.Channel.IsCreditBureauRefreshInProgress();
+        }
+        
+        public miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfCreditBureauRefreshStatus RefreshCreditBureauData() {
+            return base.Channel.RefreshCreditBureauData();
         }
     }
 }

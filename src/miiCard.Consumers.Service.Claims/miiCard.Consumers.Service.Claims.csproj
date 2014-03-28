@@ -96,6 +96,9 @@
     <None Include="Service References\v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfboolean.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfCreditBureauRefreshStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\v1.Claims\miiCard.Consumers.Service.v1.Claims.MiiApiResponseOfIdentitySnapshot.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

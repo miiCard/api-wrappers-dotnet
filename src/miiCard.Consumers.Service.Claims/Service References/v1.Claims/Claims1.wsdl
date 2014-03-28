@@ -88,6 +88,18 @@
   <wsdl:message name="IClaims_GetAuthenticationDetails_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAuthenticationDetailsResponse" />
   </wsdl:message>
+  <wsdl:message name="IClaims_IsCreditBureauRefreshInProgress_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsCreditBureauRefreshInProgress" />
+  </wsdl:message>
+  <wsdl:message name="IClaims_IsCreditBureauRefreshInProgress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsCreditBureauRefreshInProgressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClaims_RefreshCreditBureauData_InputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshCreditBureauData" />
+  </wsdl:message>
+  <wsdl:message name="IClaims_RefreshCreditBureauData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RefreshCreditBureauDataResponse" />
+  </wsdl:message>
   <wsdl:portType name="IClaims">
     <wsdl:operation name="GetClaims">
       <wsdl:input wsaw:Action="http://tempuri.org/IClaims/GetClaims" message="tns:IClaims_GetClaims_InputMessage" />
@@ -124,6 +136,14 @@
     <wsdl:operation name="GetAuthenticationDetails">
       <wsdl:input wsaw:Action="http://tempuri.org/IClaims/GetAuthenticationDetails" message="tns:IClaims_GetAuthenticationDetails_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClaims/GetAuthenticationDetailsResponse" message="tns:IClaims_GetAuthenticationDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsCreditBureauRefreshInProgress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClaims/IsCreditBureauRefreshInProgress" message="tns:IClaims_IsCreditBureauRefreshInProgress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClaims/IsCreditBureauRefreshInProgressResponse" message="tns:IClaims_IsCreditBureauRefreshInProgress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCreditBureauData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClaims/RefreshCreditBureauData" message="tns:IClaims_RefreshCreditBureauData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClaims/RefreshCreditBureauDataResponse" message="tns:IClaims_RefreshCreditBureauData_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IClaims" type="tns:IClaims">
@@ -203,6 +223,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAuthenticationDetails">
       <soap:operation soapAction="http://tempuri.org/IClaims/GetAuthenticationDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsCreditBureauRefreshInProgress">
+      <soap:operation soapAction="http://tempuri.org/IClaims/IsCreditBureauRefreshInProgress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RefreshCreditBureauData">
+      <soap:operation soapAction="http://tempuri.org/IClaims/RefreshCreditBureauData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

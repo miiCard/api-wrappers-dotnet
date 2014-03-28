@@ -92,6 +92,18 @@ namespace miiCard.Consumers.Service.v1
             return new MiiApiResponse<AuthenticationDetails>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
         }
 
+        public MiiApiResponse<bool> IsCreditBureauRefreshInProgress()
+        {
+            var response = this.GetAuthenticatedServiceMethodResult(x => x.IsCreditBureauRefreshInProgress());
+            return new MiiApiResponse<bool>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
+        }
+
+        public MiiApiResponse<CreditBureauRefreshStatus> RefreshCreditBureauData()
+        {
+            var response = this.GetAuthenticatedServiceMethodResult(x => x.RefreshCreditBureauData());
+            return new MiiApiResponse<CreditBureauRefreshStatus>(response.Status, response.ErrorCode, response.ErrorMessage, response.Data, response.IsTestUser);
+        }
+
         private T GetAuthenticatedServiceMethodResult<T>(Func<ClaimsClient, T> serviceMethodInvoker)
         {
             ClaimsClient client = null;

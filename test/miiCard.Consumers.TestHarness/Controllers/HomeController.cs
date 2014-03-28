@@ -112,6 +112,12 @@ namespace miiCard.Consumers.TestHarness.Controllers
                         case "get-authentication-details":
                             model.LastGetAuthenticationDetailsResult = apiWrapper.GetAuthenticationDetails(model.AuthenticationDetailsSnapshotId).Prettify();
                             break;
+                        case "is-credit-bureau-refresh-in-progress":
+                            model.LastIsRefreshInProgressCreditBureauResult = apiWrapper.IsCreditBureauRefreshInProgress().Prettify();
+                            break;
+                        case "refresh-credit-bureau-data":
+                            model.LastRefreshCreditBureauDataResult = apiWrapper.RefreshCreditBureauData().Prettify();
+                            break;
                         case "refresh-financial-data":
                             model.LastRefreshFinancialDataResult = financialWrapper.RefreshFinancialData().Prettify();
                             break;
@@ -159,11 +165,6 @@ namespace miiCard.Consumers.TestHarness.Controllers
                 string redirectUrl = Url.Action("HandleLoginWithMiiCard", RouteData.Values["controller"].ToString(), null, "http");
 
                 var redirectParams = new Dictionary<string, string>();
-                if (!string.IsNullOrWhiteSpace(model.ReferrerCode))
-                {
-                    // Tack in the referrer code to see how this manifests in the signup process
-                    redirectParams[MiiCardConsumer.OAUTH_PARAM_REFERRER_CODE] = model.ReferrerCode;
-                }
 
                 if (model.ForceClaimsPicker)
                 {

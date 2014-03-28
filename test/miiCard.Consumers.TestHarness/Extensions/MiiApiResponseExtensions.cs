@@ -7,6 +7,7 @@ using miiCard.Consumers.Service.v1;
 using miiCard.Consumers.Service.v1.Claims;
 using miiCard.Consumers.Service.v1.Financial;
 using miiCard.Consumers.TestHarness.Models;
+using Newtonsoft.Json.Linq;
 
 namespace miiCard.Consumers.TestHarness.Extensions
 {
@@ -457,6 +458,13 @@ namespace miiCard.Consumers.TestHarness.Extensions
                 }
             }
 
+            toReturn += RenderFactHeading("Credit Bureau Data");
+
+            if (profile.CreditBureauVerification != null)
+            {
+                toReturn += RenderCreditBureauVerification(profile.CreditBureauVerification);
+            }
+
             if (profile.PublicProfile != null)
             {
 
@@ -512,6 +520,62 @@ namespace miiCard.Consumers.TestHarness.Extensions
             toReturn += RenderFact("Title", qualification.Title);
             toReturn += RenderFact("Provider", qualification.DataProvider);
             toReturn += RenderFact("Provider URL", qualification.DataProviderUrl);
+
+            toReturn += "</div>";
+
+            return toReturn;
+        }
+
+        public static string RenderCreditBureauVerification(CreditBureauVerification verification)
+        {
+            string toReturn = "<div class='fact'>";
+
+            toReturn += RenderFact("Last verified", verification.LastVerified);
+
+            JObject data = JObject.Parse(verification.Data);
+            foreach (var child in data)
+            {
+                toReturn += "<div class='fact'><h4>" + child.Key + "</h4>";
+                toReturn += RenderCreditBureauData(child);
+                toReturn += "</div>";
+            }
+
+            toReturn += "</div>";
+
+            return toReturn;
+        }
+
+        public static string RenderCreditBureauData(KeyValuePair<string, JToken> item)
+        {
+            string toReturn = "";
+
+            Type itemType = item.Value.GetType();
+            if (itemType == typeof(JObject))
+            {
+                JObject jObject = (JObject)item.Value;
+                foreach (KeyValuePair<string, JToken> keyValuePair in jObject)
+                {
+                    toReturn += RenderCreditBureauData(keyValuePair);
+                }
+            }
+            else if (itemType == typeof(JValue))
+            {
+                string value = item.Value.ToString();
+                toReturn += RenderFact(item.Key, string.IsNullOrEmpty(value) ? null : item.Value);
+            }
+            else
+            {
+                throw new NotSupportedException("Unsupported type: " + itemType.Name);
+            }
+
+            return toReturn;
+        }
+
+        public static string RenderCreditBureauRefreshStatus(CreditBureauRefreshStatus status)
+        {
+            string toReturn = "<div class='fact'>";
+
+            toReturn += RenderFact("State", status.State.ToString());
 
             toReturn += "</div>";
 

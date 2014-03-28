@@ -23,6 +23,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Age" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="CardImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditBureauVerification" nillable="true" type="tns:CreditBureauVerification" />
       <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="EmailAddresses" nillable="true" type="tns:ArrayOfEmailAddress" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
@@ -47,6 +48,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MiiUserProfile" nillable="true" type="tns:MiiUserProfile" />
+  <xs:complexType name="CreditBureauVerification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastVerified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditBureauVerification" nillable="true" type="tns:CreditBureauVerification" />
   <xs:complexType name="ArrayOfEmailAddress">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailAddress" nillable="true" type="tns:EmailAddress" />
@@ -238,6 +246,13 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="CreditBureauUpdatesUnavailable">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1030</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="Blacklisted">
         <xs:annotation>
           <xs:appinfo>
@@ -387,4 +402,35 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="AuthenticationTokenType" nillable="true" type="tns:AuthenticationTokenType" />
+  <xs:complexType name="MiiApiResponseOfCreditBureauRefreshStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="MiiApiResponseOf{0}" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CreditBureauRefreshStatus" Namespace="http://schemas.datacontract.org/2004/07/miiCard.STS.Model.Api" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="tns:CreditBureauRefreshStatus" />
+      <xs:element minOccurs="0" name="ErrorCode" type="tns:MiiApiErrorCode" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsTestUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" type="tns:MiiApiCallStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MiiApiResponseOfCreditBureauRefreshStatus" nillable="true" type="tns:MiiApiResponseOfCreditBureauRefreshStatus" />
+  <xs:complexType name="CreditBureauRefreshStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="State" type="tns:CreditBureauRefreshStatus.RefreshStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditBureauRefreshStatus" nillable="true" type="tns:CreditBureauRefreshStatus" />
+  <xs:simpleType name="CreditBureauRefreshStatus.RefreshStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="DataAvailable" />
+      <xs:enumeration value="InProgress" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CreditBureauRefreshStatus.RefreshStatus" nillable="true" type="tns:CreditBureauRefreshStatus.RefreshStatus" />
 </xs:schema>
